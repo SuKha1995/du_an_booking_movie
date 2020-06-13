@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.trapezoid {
+	border-bottom: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	min-height: 0;
+	width: 700px;
+}
+.ghe {
+  margin: 5px;
+  background-color: rgb(228, 209, 209);
+  border-radius: 5px;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+}
+.gheDaDat{
+  // cursor: no-drop;
+  font-weight: bold;
+  background-color: blue($color: #d36464);
+  font-size: 17px;
+}
+.gheVip{
+  background-color: rgb(245, 74, 74) ;
+}
+.gheDangDat{
+  background-color: green;
+  color: white;
+}
