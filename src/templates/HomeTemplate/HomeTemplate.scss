@@ -1,0 +1,157 @@
+@import "../../assets/scss/Helper/mixin";
+@import "../../assets/scss/Helper/variables";
+.header {
+  position: sticky;
+  background-color: rgba(255, 255, 255, 0.85);
+ 
+  .nav-logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+  }
+  .nav-items {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .nav-item {
+        margin-right: 30px;
+     
+      .nav-link {
+        // @include styleText($fs-0,$fw-normal,$color-purple)
+        @include styleText($fs-2 - 1, $fw-bold-0, $color-black-0);
+        // padding-right: 30px;
+        &:hover {
+          @include styleText($fs-2 - 1, $fw-bold-0, $color-prink);
+          transition: all .5s;
+        }
+      }
+      .nav__link {
+        height: 2px;
+        width: 0;
+        background-color: $color-prink;
+        
+      }
+      
+
+      &:hover .nav__link {
+        width: 100%;
+        transition: all .5s;
+      }
+      &:active .nav__link{
+          width: 100%;
+      }
+
+      .active{
+        color: $color-prink !important;
+        
+        .nav__link{
+            width: 100%;
+        }
+        
+       
+    }
+    }
+
+    
+    
+  }
+}
+.icon-login {
+  font-size: 25px;
+}
+.login {
+  @include styleText($fs-1 + 2, $fw-bold-0, $color-gray-4);
+  &:hover {
+    @include styleText($fs-1 + 2, $fw-bold-0, $color-prink);
+  }
+}
+
+
+///Footer
+
+.footer{
+    background-color:#141415;
+    margin-top: 30px;
+
+    .footer__top{
+        padding: 40px 0;
+        .footer__top--about{
+            h4{
+                @include styleText($fs-3,$fw-bold-0,$color-prink);
+                padding-bottom: 20px;
+            }
+            p{
+                @include styleText($fs-0,$fw-normal,$color-gray-7);
+                letter-spacing: 2px;
+            }
+        }
+        .footer__top--news{
+            h4{
+                padding-left: 16px;
+                padding-bottom: 20px;
+                @include styleText($fs-3,$fw-bold-0,$color-prink);
+               
+            }
+            p{
+                padding-left: 16px;
+                i{
+                   font-size: 15px;
+                   color: $color-prink;
+                }
+                span{
+                    @include styleText($fs-0,$fw-normal,$color-gray-7);
+                    letter-spacing: 2px;
+                    padding-left: 10px;
+                }
+            }
+        }
+        .footer__top--contact{
+            h4{
+                padding-left: 16px;
+                padding-bottom: 20px;
+                @include styleText($fs-3,$fw-bold-0,$color-prink);
+            }
+            p{
+                padding-left: 16px;
+                i{
+                   font-size: 15px;
+                   color: $color-prink;
+                }
+                span{
+                    @include styleText($fs-0,$fw-normal,$color-gray-7);
+                    letter-spacing: 2px;
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+    .footer__bottom{
+        text-align: center;
+        padding-bottom: 20px;
+        span{
+           
+            @include styleText($fs-2,$fw-bold-0,$color-prink);
+            padding-right: 30px;
+        }
+        a{
+            margin-right: 15px;
+            i{
+            
+                font-size: 30px;
+                color: $color-prink;
+                font-weight: bold;
+            
+        }
+        &:hover{
+            i{
+                color:$color-blue
+            }
+           
+        }
+        }
+        
+    }
+}
+
+

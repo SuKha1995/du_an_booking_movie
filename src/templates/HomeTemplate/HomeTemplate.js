@@ -33,23 +33,19 @@
 
 import React, { Fragment, Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb } from 'antd';
 import Header from '../../components/Header'
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-const { SubMenu } = Menu;
-const {  Content, Sider,  } = Layout;
-
-
+import Footer from '../../components/Footer';
 const HomeLayout = (props) => {
     return (
         <Fragment>
-           <Layout>
+          
                     <Header/>
-                    <Content>
+                   
                         {props.children}
-                    </Content>
+                    <Footer/>
+                   
                     
-                </Layout>
+               
         </Fragment>
     )
 }

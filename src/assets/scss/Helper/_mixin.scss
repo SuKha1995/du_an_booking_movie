@@ -1,0 +1,56 @@
+@mixin styleText($fs, $fw, $color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+
+@mixin styleButton($color, $bg-color, $bd-color, $pd-1, $pd-2) {
+    color: $color;
+    background-color: $bg-color;
+    border: 1px solid $bd-color;
+    padding: $pd-1, $pd-2; 
+}
+
+@mixin styleHoverButton($color, $bg-color, $bd-color) {
+    color: $color;
+    background-color: $bg-color;
+    border: 1px solid $bd-color;
+}
+
+// @mixin reponsive ($screen) {
+//     @if(map-has-key($breakpoints, $screen)) {
+//         $value: map-get($breakpoints, $screen);
+//         @media screen and (max-width: $value) {
+//             @content;
+//         }
+//     }
+// }
+@mixin responsive_0 () {
+    @media #{$res-0} {
+        @content;
+    }
+}
+
+@mixin responsive_576 () {
+    @media #{$res-576} {
+        @content;
+    }
+}
+
+@mixin responsive_768 () {
+    @media #{$res-768} {
+        @content;
+    }
+}
+
+@mixin responsive_992 () {
+    @media #{$res-992} {
+        @content;
+    }
+}
+
+@mixin responsive_1200 () {
+    @media #{$res-1200} {
+        @content;
+    }
+}
