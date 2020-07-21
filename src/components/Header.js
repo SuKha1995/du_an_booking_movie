@@ -22,7 +22,7 @@ export default class Header extends Component {
                                 <div className="nav__link "></div>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/regis">Tin Tức</NavLink>
+                                <NavLink className="nav-link" to="/login">Tin Tức</NavLink>
                                 <div className="nav__link"></div>
                             </li>
                             <li className="nav-item">
@@ -39,7 +39,7 @@ export default class Header extends Component {
                     <span className="mr-2 "><i class="fa fa-user-circle icon-login"></i></span>
                     <div>
                         <div className="mr-5" >
-                            {/* <NavLink className="login mr-3" to="/regis">Đăng Ký</NavLink> */}
+                            <NavLink className="login mr-3" to="/regis">Đăng Ký</NavLink>
                             
                             <NavLink className="login" to="/login">Đăng Nhập</NavLink>
                         </div>
