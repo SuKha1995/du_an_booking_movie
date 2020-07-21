@@ -1,0 +1,130 @@
+
+@import "../scss/Helper/mixin";
+@import "../scss/Helper/variables";
+.carousel{
+    margin-bottom: 40px;
+    .carousel__item{
+        position: relative;
+        i{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% ,-50%);
+            z-index: 5;
+            color: white;
+            border: solid 2px white;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            font-size: 20px;
+            padding: 35px 0 0 4px;
+            &:hover{
+                border: solid 2px $color-prink;
+                color: $color-prink;
+                transition: .5s;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+       
+        
+    }
+   
+}
+.movie__body{
+         background-image: url(../../img/homeImg/hinhnen2.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        
+        // height: 100%;
+        
+}
+//card
+
+    
+.card__movie{
+    position: relative;
+    margin-bottom: 20px;
+        .card-img{
+            position: relative;
+            .card-bg{
+                position: absolute;
+                z-index: 100;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to top , rgba(236, 229, 229, 0.335), rgba(250, 250, 250, 0));
+                display: none;
+                transition: all .5s;
+               }
+        }
+       .card-body{
+           padding: 10px 0;
+           .card-title{
+            @include styleText($fs-2,$fw-normal,$color-black-light);
+           margin: 0;
+           }
+           .btn{
+               z-index: 101;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100px;
+            height: 40px;
+            color: $color-white-0;
+            background-color: $color-prink;
+            border: none;
+            
+        }
+       }
+       &:hover{
+            .card-img .card-bg{
+                display: inline;
+            }
+            .card-body .btn{
+                display: inline;
+            }
+       }
+       
+       
+
+   
+}
+//
+
+.heThongRap{
+   
+    .heThongRap__body{
+        background-color: $color-gray-2;
+        margin-bottom: 10px;
+        height: 40px;
+        border-radius: 5px;
+       
+       
+        .heThongRap__rap{
+            @include styleText($fs-2, $fw-bold-0,$color-black-light);
+            border: none;
+             padding: 5px;
+            height: 40px;
+            
+        }
+        &:active{
+            background-image: linear-gradient(to right , $color-orange-0 , $color-orange-1);
+            
+        }
+        // &:hover{
+        //     background-image: linear-gradient(to right , $color-orange-0 , $color-orange-1);
+        // }
+    }
+}
+
+
+
+
+    
+
+          
+      

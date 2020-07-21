@@ -15,27 +15,27 @@ export default function MovieDetail(props) {
         }).catch((error) => {
             console.log(error.response.data)
         })
-    }, [])
+    }, []) 
     console.log('thongTinPhim', thongTinPhim)
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col-6">
-                    <img style={{ width: '200', height: '300' }} />
+                    <img src={thongTinPhim.hinhAnh} style={{ width: '200', height: '300' }} />
                 </div>
                 <div className="col-6">
                     <table className="table">
                         <thead>
                             <tr>
                                 <th>Tên Phim</th>
-                                <th>Lâu Đài Máu</th>
+                                <th>{thongTinPhim.tenPhim}</th>
                             </tr>
                             <tr>
                                 <th>
                                     Mô Tả
                                 </th>
-                                <th>Mô Tả ...</th>
+                                <th>{thongTinPhim.moTa}</th>
                             </tr>
                         </thead>
                     </table>
@@ -46,7 +46,7 @@ export default function MovieDetail(props) {
                 <div className="row">
                     <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         {thongTinPhim.heThongRapChieu?.map((heThongRap,index)=>{
-                            return<a key={index} className="nav-link" id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            return<a key={index} className="nav-link " id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
                                     <img src={heThongRap.logo} style={{width:'35px',height:'35px'}}/>
                                     <span className="ml-3">{heThongRap.tenHeThongRap}</span>
                                     </a>

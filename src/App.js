@@ -9,8 +9,8 @@ import MovieDetail from './pages/MovieDetail';
 import ShowTime from './pages/ShowTime';
 import Login from './pages/Login';
 import Regis from './pages/Regis';
-import "~slick-carousel/slick/slick.css"; 
-import "~slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default class App extends Component {
   render() {
@@ -21,7 +21,7 @@ export default class App extends Component {
         <HomeTemplate exact path="/showtime/:maLichChieu" component={ShowTime}/>
         <HomeTemplate exact path="/home" component={Home}/>
         <HomeTemplate exact path="/login" component={Login}/>
-        {/* <HomeTemplate  exact path="/regis" component={Regis}/> */}
+        <HomeTemplate  exact path="/regis" component={Regis}/>
         <Redirect to='/home'/>
       </BrowserRouter>
     )

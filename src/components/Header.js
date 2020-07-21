@@ -18,11 +18,11 @@ export default class Header extends Component {
                                 <div className="nav__link"></div>
                             </li>
                             <li className="nav-item ">
-                                <NavLink className="nav-link " to="/showtime/:maLichChieu">Cụm Rạp</NavLink>
+                                <NavLink className="nav-link " to="/showtime/:maLichChieu">Hệ Thống Rạp</NavLink>
                                 <div className="nav__link "></div>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/login">Tin Tức</NavLink>
+                                <NavLink className="nav-link" to="/regis">Tin Tức</NavLink>
                                 <div className="nav__link"></div>
                             </li>
                             <li className="nav-item">
