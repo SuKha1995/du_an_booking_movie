@@ -10,7 +10,8 @@ import {Provider} from 'react-redux';
 import reduxThunk from 'redux-thunk';
  import 'antd/dist/antd.css';
 const store = createStore(rootReducers,applyMiddleware(reduxThunk))
-
+//,applyMiddleware(reduxThunk)
+//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ReactDOM.render(
   <Provider store={store}>
 

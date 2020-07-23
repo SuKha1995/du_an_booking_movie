@@ -9,6 +9,13 @@ import {domain} from '../settings/config'
             method: 'POST',
             data
         })
+    };
+    Login = (user) =>{
+        return axios({
+            url: `${domain}/QuanLyNguoiDung/DangNhap`,
+            method: 'POST',
+            data: user,
+        })
     }
 }
 

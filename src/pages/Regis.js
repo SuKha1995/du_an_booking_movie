@@ -1,9 +1,10 @@
 import React from 'react'
-import { BrowserRouter ,Redirect} from 'react-router-dom'
+import { BrowserRouter ,Redirect, useHistory, NavLink} from 'react-router-dom'
 import { useFormik } from 'formik'
 import { UserService } from '../service/userService';
 
 export default function Regis() {
+    const history = useHistory();
     const formik = useFormik({
         initialValues: {
             taiKhoan: "",
@@ -17,9 +18,13 @@ export default function Regis() {
         },
         onSubmit :values =>{
             console.log(values)
+           
             UserService.Registration(values).then(res =>{
-               
-                return <Redirect to="/login"/>
+               alert('Đăng ký thành công')
+                setTimeout(()=>{
+                    history.push('/login')
+                },2000)
+                history.push('/login')
                
                
             }).catch(err =>{
@@ -102,6 +107,9 @@ export default function Regis() {
             </div>
             <div className="text-center">
                 <button className="btn btn-success" type="submit">Đăng ký</button>
+                <button className="btn btn-success" type="submit">
+                    <NavLink to='/login'>Đăng nhập</NavLink>
+                </button>
             </div>
 
 
