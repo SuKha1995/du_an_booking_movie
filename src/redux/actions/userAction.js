@@ -1,5 +1,5 @@
 import { UserService } from "../../service/userService"
-import {userAction} from './index'
+import {userAction} from '../type/userType'
 
 
 export const LoginAction = (user) =>{

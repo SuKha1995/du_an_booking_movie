@@ -1,1 +1,7 @@
-export const THONG_TIN_DANG_NHAP = "THONG_TIN_DANG_NHAP";
+export const userAction = (user) =>{
+    return {
+        type: 'TAI_KHOAN_DANG_NHAP',
+         payload: user
+    }
+    
+}

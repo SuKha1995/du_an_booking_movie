@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter ,Redirect, Route} from 'react-router-dom';
-import {Button} from 'antd';
+import { BrowserRouter ,Redirect, Switch, Route} from 'react-router-dom';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate'
 import Admin from './pages/Admin';
 import {HomeTemplate} from './templates/HomeTemplate/HomeTemplate'
@@ -17,14 +16,17 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        {/* <HomeTemplate exact path="/" component={Home}/> */}
-        <AdminTemplate exact path="/admin" component={Admin}/>
-        <HomeTemplate exact path="/moviedetail/:maPhim" component={MovieDetail}/>
-        <HomeTemplate exact path="/showtime/:maLichChieu" component={ShowTime}/>
-        <HomeTemplate exact path="/home" component={Home}/>
-        <HomeTemplate exact path="/login" component={Login}/>
-        <HomeTemplate  exact path="/regis" component={Regis}/>
-        {/* <Route component={NotFound}/> */}
+        <Switch>
+          {/* <HomeTemplate exact path="/" component={Home}/> */}
+          <AdminTemplate exact path="/admin" component={Admin}/>
+          <HomeTemplate exact path="/moviedetail/:maPhim" component={MovieDetail}/>
+          <HomeTemplate exact path="/showtime/:maLichChieu" component={ShowTime}/>
+          <HomeTemplate exact path="/home" component={Home}/>
+          <HomeTemplate exact path="/login" component={Login}/>
+          <HomeTemplate  exact path="/regis" component={Regis}/>
+          <HomeTemplate exact path="/" component={Home}/>
+          <Route component={NotFound}/>
+        </Switch>
       </BrowserRouter>
     )
   }
