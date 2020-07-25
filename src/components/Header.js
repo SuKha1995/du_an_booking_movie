@@ -42,7 +42,7 @@ export default function Header(props) {
             <span className="mr-2 "><i class="fa fa-user-circle icon-login"></i></span>
             <div>
                 <div>
-                    {user? <NavLink className="login mr-3">Hi, {user.taiKhoan}</NavLink> : <div className="mr-5" >
+                    {user? <div className="login mr-3">Hi, {user.taiKhoan}</div> : <div className="mr-5" >
                     <NavLink className="login mr-3" to="/regis">Đăng Ký</NavLink>
                     
                     <NavLink className="login" to="/login">Đăng Nhập</NavLink>

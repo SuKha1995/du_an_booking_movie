@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import { BrowserRouter ,Redirect, Switch, Route} from 'react-router-dom';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate'
 import Admin from './pages/Admin';
@@ -11,8 +12,9 @@ import Regis from './pages/Regis';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import NotFound from './pages/NotFound';
+import { userAction } from './redux/type/userType';
 
-export default class App extends Component {
+ class App extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -30,5 +32,14 @@ export default class App extends Component {
       </BrowserRouter>
     )
   }
+  layThongTinDangNhap =() =>{
+    const isLogin  = localStorage.getItem('userLogin')
+    if(isLogin){
+        this.props.dispatch(userAction(JSON.parse(isLogin)))
+    }
+  }
+  componentDidMount(){
+    this.layThongTinDangNhap()
+  }
 }
-
+export default connect()(App)
