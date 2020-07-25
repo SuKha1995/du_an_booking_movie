@@ -51,8 +51,8 @@ export default function Regis() {
                alert('Đăng ký thành công')
                 setTimeout(()=>{
                     history.push('/login')
-                },2000)
-                history.push('/login')
+                },1000)
+                // history.push('/login')
                
                
             }).catch(err =>{

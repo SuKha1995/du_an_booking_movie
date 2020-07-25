@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {domain} from '../settings/config'
+import {domain,groupID, accessToken} from '../settings/config'
 
  class userService extends Component {
     Registration = (data) =>{

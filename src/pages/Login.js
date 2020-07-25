@@ -1,20 +1,27 @@
 import React from 'react'
 import {useFormik,Formik,Field, Form, ErrorMessage} from 'formik'
 import * as yup from 'yup'
-import { useDispatch} from 'react-redux'
+import { useDispatch , useSelector} from 'react-redux'
 import {LoginAction} from '../redux/actions/userAction'
-import { NavLink } from 'react-router-dom'
+import { NavLink ,useHistory} from 'react-router-dom'
+import {userReducers} from '../redux/Reducers/userReducers'
 
 
  function Login() {
     const dispatch = useDispatch()
+    const history = useHistory()
+    const getCheckLogin = useSelector(state => state.user.checkLogin)
     const LoginSchema = yup.object().shape({
         taiKhoan: yup.string().required("*Vui lòng nhập tên tài khoản"),
         matKhau: yup.string().required("*Vui lòng nhập mật khẩu")
     })
     const _handleSubmit = (values) =>{
-        console.log(values)
-        dispatch(LoginAction(values)) // dispatch lên server gọi api
+       
+        dispatch(LoginAction(values))
+        console.log(getCheckLogin)
+        if(getCheckLogin){
+            history.push('/home')
+        } 
     }
     
     return (

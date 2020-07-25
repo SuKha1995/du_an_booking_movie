@@ -1,15 +1,19 @@
 import { UserService } from "../../service/userService"
-import {userAction} from '../type/userType'
+import {userAction, checkLogin} from '../type/userType'
+import {useHistory,NavLink} from 'react-router-dom'
 
 
 export const LoginAction = (user) =>{
     return dispatch =>{
         UserService.Login(user).then(res =>{
-            dispatch(userAction(res.data)); //dispatch action lên reducers
-            localStorage.setItem('userLogin', JSON.stringify(res.data))
-            // console.log(res.data)
+            dispatch(userAction(res.data)); //dispatch action lưu dữ liệu lên reducers
+            localStorage.setItem('userLogin', JSON.stringify(res.data)) // lưu dưới local
+            // 
+            dispatch(checkLogin())
+            
         }).catch(err=>{
             console.log(err)
         })
+        
     }
 }
