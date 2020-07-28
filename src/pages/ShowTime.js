@@ -57,9 +57,9 @@ export default function ShowTime(props) {
         </div>)
     }
     const datVe = () =>{
-        // let taiKhoanNguoiDung = JSON.parse(localStorage.getItem(userLogin)).taiKhoan;
+        let taiKhoanNguoiDung = JSON.parse(localStorage.getItem(userLogin)).taiKhoan;
         //tài khoản mặt định
-       let taiKhoanNguoiDung = "123@admin";
+    //    let taiKhoanNguoiDung = "123@admin";
         let thongTinDatVe = {
             "maLichChieu": props.match.params.maLichChieu,
             "danhSachVe":danhSachGheDangDat,
@@ -72,7 +72,7 @@ export default function ShowTime(props) {
         })
     }
 
-
+ 
     const renderDanhSachGhe = ()=>{
         return thongTinLichChieu.danhSachGhe?.map((ghe,index)=>{
             return <Fragment key={index}>

@@ -13,6 +13,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NotFound from './pages/NotFound';
 import { userAction } from './redux/type/userType';
+import User from './pages/User';
+import UserEdit from './pages/UserEdit';
 
  class App extends Component {
   render() {
@@ -26,6 +28,8 @@ import { userAction } from './redux/type/userType';
           <HomeTemplate exact path="/home" component={Home}/>
           <HomeTemplate exact path="/login" component={Login}/>
           <HomeTemplate  exact path="/regis" component={Regis}/>
+          <Route exact path="/user" component={User}/>
+          <Route exact path="/userEdit" component={UserEdit}/>
           <HomeTemplate exact path="/" component={Home}/>
           <Route component={NotFound}/>
         </Switch>

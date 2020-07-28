@@ -16,6 +16,23 @@ import {domain,groupID, accessToken} from '../settings/config'
             method: 'POST',
             data: user,
         })
+    };
+    UserInfo = (taiKhoan) =>{
+        return axios({
+            url: `${domain}//QuanLyNguoiDung/ThongTinTaiKhoan`,
+            method: 'POST',
+            data: taiKhoan,
+        })
+    };
+    UserEditInfo = (data)=>{
+        return axios({
+            url: `${domain}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+            method: 'PUT',
+            data,
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
     }
 }
 

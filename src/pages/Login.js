@@ -1,9 +1,9 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
 import {useFormik,Formik,Field, Form, ErrorMessage} from 'formik'
 import * as yup from 'yup'
-import { useDispatch , useSelector} from 'react-redux'
+import { useDispatch , useSelector, } from 'react-redux'
 import {LoginAction} from '../redux/actions/userAction'
-import { NavLink ,useHistory} from 'react-router-dom'
+import { NavLink ,useHistory,} from 'react-router-dom'
 import {userReducers} from '../redux/Reducers/userReducers'
 
 
@@ -18,11 +18,14 @@ import {userReducers} from '../redux/Reducers/userReducers'
     const _handleSubmit = (values) =>{
        
         dispatch(LoginAction(values))
-        console.log(getCheckLogin)
+        
+    }
+    useEffect(() => {
         if(getCheckLogin){
             history.push('/home')
         } 
-    }
+        
+    }, [getCheckLogin])
     
     return (
         <div className="w-50 mx-auto">

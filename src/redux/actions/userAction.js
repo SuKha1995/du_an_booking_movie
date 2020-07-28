@@ -12,7 +12,7 @@ export const LoginAction = (user) =>{
             dispatch(checkLogin())
             
         }).catch(err=>{
-            console.log(err)
+            console.log(err) 
         })
         
     }
