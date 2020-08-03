@@ -16,6 +16,7 @@ export default function Home(props) {
 
         qlPhimService.layDanhSachPhim().then(res => {
             setDanhSachPhim(res.data)
+            console.log(res.data)
         }).catch(error => {
             console.log(error.response.data)
         })
@@ -44,16 +45,21 @@ export default function Home(props) {
     }
     let renderPhim = () => {
         return danhSachPhim.slice(1).map((phim, index) => {
-            return <div className="col-3 card__movie" key="{index}">
+            return <div className="col-3 pt-1 movie__card-content" key="{index}">
                 <div className="card-img">
                     <img src={phim.hinhAnh} style={{ width: '100%', height: 340 }} alt />
+                    
                     <div className="card-bg"></div>
 
                 </div>
                 <div className="card-body">
-                    <p className=" card-title ">{phim.tenPhim}</p>
+                    <span className=" card-title ">{phim.tenPhim}</span>
+                    <span className="card-date">{moment(phim.ngayKhoiChieu).format('MMMM Do YYYY')}</span>
                     <NavLink className="btn btn-success" to={`/moviedetail/${phim.maPhim}`}>ĐẶT VÉ</NavLink>
                 </div>
+                <a  href={phim.trailer} className="card-play"><i class="fa fa-play"></i>
+                    </a>
+                
             </div>
         })
     };
@@ -82,10 +88,10 @@ export default function Home(props) {
                 </div>
             </Slider>
             <div className="container">
-                <div className="row movie__body">
+                <div className="row movie__card">
                     {renderPhim()}
                 </div>
-                <div className="my-3">
+                <div className="my-3" id="heThongRap">
 
                     <div className="container">
                         <h2 className="text-center pb-3">Hệ Thống Rạp</h2>
@@ -130,7 +136,7 @@ export default function Home(props) {
 
                                                         </div>
 
-
+ 
                                                     </div>
                                                     <div className="mt-2 text-left">
                                                         {listPhim.lstLichChieuTheoPhim?.slice(50).map((lichChieu, index) => {

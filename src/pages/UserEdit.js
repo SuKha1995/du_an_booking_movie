@@ -59,7 +59,7 @@ export default function UserEdit(props) {
                         <Field className="form-control"
                             name="taiKhoan"
                             type="text"
-                            values= {thongTinNguoiDung.taiKhoan}
+                            // values= {thongTinNguoiDung.taiKhoan}
                             onChange={formikProps.handleChange}
                             
                         />

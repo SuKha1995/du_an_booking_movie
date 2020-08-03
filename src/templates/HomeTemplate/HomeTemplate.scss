@@ -2,11 +2,11 @@
 @import "../../assets/scss/Helper/variables";
 .header {
   position: sticky;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(56, 55, 55, 0.815);
  
   .nav-logo {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     margin-left: 30px;
   }
   .nav-items {
@@ -19,17 +19,17 @@
      
       .nav-link {
         // @include styleText($fs-0,$fw-normal,$color-purple)
-        @include styleText($fs-2 - 1, $fw-bold-0, $color-black-0);
+        @include styleText($fs-2 - 1, $fw-bold-0, $color-white-1);
         // padding-right: 30px;
         &:hover {
-          @include styleText($fs-2 - 1, $fw-bold-0, $color-prink);
+          @include styleText($fs-2 - 1, $fw-bold-0, $color-white-0);
           transition: all .5s;
         }
       }
       .nav__link {
         height: 2px;
         width: 0;
-        background-color: $color-prink;
+        background-image: linear-gradient(to right, $color-orange-0, $color-orange-1);
         
       }
       
@@ -38,16 +38,11 @@
         width: 100%;
         transition: all .5s;
       }
-      &:active .nav__link{
-          width: 100%;
-      }
-
+      
       .active{
-        color: $color-prink !important;
+        color: $color-white-0 !important;
+        width: 100%;
         
-        .nav__link{
-            width: 100%;
-        }
         
        
     }
@@ -59,11 +54,12 @@
 }
 .icon-login {
   font-size: 25px;
+  color: $color-white-0;
 }
 .login {
-  @include styleText($fs-1 + 2, $fw-bold-0, $color-gray-4);
+  @include styleText($fs-1 + 2, $fw-bold-0, $color-white-1);
   &:hover {
-    @include styleText($fs-1 + 2, $fw-bold-0, $color-prink);
+    @include styleText($fs-1 + 2, $fw-bold-0, $color-white-0);
   }
 }
 
@@ -78,8 +74,10 @@
         padding: 40px 0;
         .footer__top--about{
             h4{
-                @include styleText($fs-3,$fw-bold-0,$color-prink);
+                @include styleText($fs-3,$fw-bold-0,$color-gray-3);
                 padding-bottom: 20px;
+               
+                
             }
             p{
                 @include styleText($fs-0,$fw-normal,$color-gray-7);
@@ -90,14 +88,14 @@
             h4{
                 padding-left: 16px;
                 padding-bottom: 20px;
-                @include styleText($fs-3,$fw-bold-0,$color-prink);
+                @include styleText($fs-3,$fw-bold-0,$color-gray-3);
                
             }
             p{
                 padding-left: 16px;
                 i{
                    font-size: 15px;
-                   color: $color-prink;
+                   color: $color-gray-3;
                 }
                 span{
                     @include styleText($fs-0,$fw-normal,$color-gray-7);
@@ -110,13 +108,13 @@
             h4{
                 padding-left: 16px;
                 padding-bottom: 20px;
-                @include styleText($fs-3,$fw-bold-0,$color-prink);
+                @include styleText($fs-3,$fw-bold-0,$color-gray-3);
             }
             p{
                 padding-left: 16px;
                 i{
                    font-size: 15px;
-                   color: $color-prink;
+                   color: $color-gray-3;
                 }
                 span{
                     @include styleText($fs-0,$fw-normal,$color-gray-7);
@@ -131,7 +129,7 @@
         padding-bottom: 20px;
         span{
            
-            @include styleText($fs-2,$fw-bold-0,$color-prink);
+            @include styleText($fs-2,$fw-bold-0,$color-gray-3);
             padding-right: 30px;
         }
         a{
@@ -139,13 +137,13 @@
             i{
             
                 font-size: 30px;
-                color: $color-prink;
+                color: $color-white-0;
                 font-weight: bold;
             
         }
         &:hover{
             i{
-                color:$color-blue
+                color:$color-orange-0
             }
            
         }

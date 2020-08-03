@@ -54,7 +54,7 @@ export default class Footer extends Component {
                         </div>
                     </div>
                     <div className="footer__bottom">
-                        <span>Follow Us</span>
+                       
                         <a> <i class="fab fa-facebook-square"></i></a>
                        <a> <i class="fab fa-twitter-square"></i></a>
                        <a> <i class="fab fa-youtube-square"></i></a>
