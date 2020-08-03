@@ -16,6 +16,15 @@ code {
     monospace;
     @include styleText($fs-1, $fw-normal,$color-blue);
 }
+.btn-orange{
+  color: $color-white-0;
+  background-image: linear-gradient(
+        to right,
+        $color-orange-0,
+        $color-orange-1
+      );
+  
+}
 .trapezoid {
 	border-bottom: 50px solid #555;
 	border-left: 25px solid transparent;
