@@ -1,6 +1,16 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
+import { useSelector } from 'react-redux'
 export default function HeaderUser() {
+    const user = useSelector(state => state.user.thongTinDangNhap);
+    
+    const getCheckLogin = useSelector(state => state.user.checkLogin);
+    const history = useHistory();
+    const hangdleLogOut = () => {
+        localStorage.clear()
+
+        history.push('/home')
+    }
     return (
         <div className="header ">
             <nav className="navbar navbar-expand-lg  py-0">
@@ -18,7 +28,8 @@ export default function HeaderUser() {
                 </div>
                
                 <div>
-                    <button>Đăng Xuất</button>
+                    {user?  <NavLink to="/home" className="btn-orange" onClick={hangdleLogOut}>Đăng Xuất</NavLink> : ""}
+                   
                 </div>
 
 

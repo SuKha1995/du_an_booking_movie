@@ -35,7 +35,7 @@ export default function User(props) {
         <div className="user__content">
             <div className="container ">
 
-                <ul className="nav">
+                <ul className="nav nav-tabs">
                     <li className="nav-item">
                         <a className="nav-link active  user-title" data-toggle="tab" href="#home">Thông Tin Cá Nhân</a>
                     </li>
@@ -77,11 +77,11 @@ export default function User(props) {
                                     </thead>
 
                                 </table>
-                                <button className="btn btn-success" >
-
-                                    <NavLink to='/userEdit'>Sửa Thông Tin</NavLink>
+                                
+                                <div className="text-center">
+                                    <NavLink to='/userEdit' className="navLink">Sửa Thông Tin</NavLink>
                                     {/* <UserModal thongTin ={thongTinNguoiDung}/> */}
-                                </button>
+                                </div>
 
                             </div>
                             <div className="col-6">

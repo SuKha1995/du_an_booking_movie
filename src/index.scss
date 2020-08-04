@@ -17,13 +17,34 @@ code {
     @include styleText($fs-1, $fw-normal,$color-blue);
 }
 .btn-orange{
+  color: $color-gray-6;
+  font-weight: $fw-bold;
+  background: linear-gradient(to right ,$color-orange-0,$color-orange-1 );
+ padding: 5px 15px;
+ border:1px solid $color-white-0;
+ border-radius: 5px;
+ box-shadow: none;
+ 
+ 
+ &:hover {
+  background: $color-white-0;
+  border-color: $color-orange-1;
+  color: $color-orange-1;
+  box-shadow: none;
+}
+}
+.navLink{
   color: $color-white-0;
-  background-image: linear-gradient(
-        to right,
-        $color-orange-0,
-        $color-orange-1
-      );
-  
+  background:linear-gradient(to right ,$color-orange-0,$color-orange-1 ) ;
+  border: 1px solid $color-white-0;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-weight: $fw-bold;
+  &:hover{
+    color: $color-orange-1;
+    background: $color-white-0;
+    border:1px solid $color-orange-1;
+  }
 }
 .trapezoid {
 	border-bottom: 50px solid #555;

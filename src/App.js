@@ -27,8 +27,8 @@ import { UserTemplate } from './templates/UserTemplate/UserTemplate';
           <HomeTemplate exact path="/moviedetail/:maPhim" component={MovieDetail}/>
           <HomeTemplate exact path="/showtime/:maLichChieu" component={ShowTime}/>
           <HomeTemplate exact path="/home" component={Home}/>
-          <HomeTemplate exact path="/login" component={Login}/>
-          <HomeTemplate  exact path="/regis" component={Regis}/>
+          <UserTemplate exact path="/login" component={Login}/>
+          <UserTemplate  exact path="/regis" component={Regis}/>
           <UserTemplate exact path="/user" component={User}/>
           <UserTemplate exact path="/userEdit" component={UserEdit}/>
           <HomeTemplate exact path="/" component={Home}/>

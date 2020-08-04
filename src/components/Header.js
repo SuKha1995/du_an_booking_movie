@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import '../templates/HomeTemplate/HomeTemplate.scss'
@@ -6,7 +6,9 @@ import '../templates/HomeTemplate/HomeTemplate.scss'
 
 
 export default function Header(props) {
+    
     const user = useSelector(state => state.user.thongTinDangNhap)
+  
     return (
         <div className="header sticky-top">
             <nav className="navbar navbar-expand-lg  py-0">
@@ -33,7 +35,7 @@ export default function Header(props) {
                             <div className="nav__link"></div>
                         </li>
 
-
+ 
                     </ul>
 
 
