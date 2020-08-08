@@ -1,7 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import { qlPhimService } from '../service/quanLiPhimService';
-import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { qlPhimService } from '../../service/quanLiPhimService';
+import './MovieDetail.scss';
+import MovieDetailModal from './MovieDetailModal';
 
 export default function MovieDetail(props) {
 
@@ -17,36 +19,50 @@ export default function MovieDetail(props) {
         })
     }, []) 
     console.log('thongTinPhim', thongTinPhim)
+    const openTrailer = ()=>{
+        window.open(thongTinPhim.trailer, "trailer")
+    }
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="col-6">
-                    <img src={thongTinPhim.hinhAnh} style={{ width: '200', height: '300' }} />
+            <div className="row moviDetail">
+                <div className="col-4 movieDetail__Img">
+                    <img src={thongTinPhim.hinhAnh}  />
                 </div>
-                <div className="col-6">
-                    <table className="table">
+
+                <div className="col-8 movieDetail__content mt-3">
+                    <div className="movieDetail__content--nameFilm">{thongTinPhim.tenPhim}</div>
+
+                    <div className="movieDetail__content--painted">{thongTinPhim.moTa}</div>
+
+                    <table >
                         <thead>
                             <tr>
-                                <th>Tên Phim</th>
-                                <th>{thongTinPhim.tenPhim}</th>
+                                <th className="movieDetail__content--text">Ngày chiếu : </th>
+                                <th className="movieDetail__content--text">{moment(thongTinPhim.ngayKhoiChieu).format('MMMM Do YYYY')}</th>
                             </tr>
                             <tr>
-                                <th>
-                                    Mô Tả
-                                </th>
-                                <th>{thongTinPhim.moTa}</th>
+                                <th className="movieDetail__content--text">Điểm đánh giá : </th>
+                                <th className="movieDetail__content--text">{thongTinPhim.danhGia}</th>
+                               
                             </tr>
                         </thead>
+                    <button onClick={openTrailer} className="btn-orange mt-3 mr-3">
+                        Trailer
+                    </button>
+                    <a className="btn-datVe" href="#datVe">
+                        Đặt vé
+                    </a>
                     </table>
                 </div>
             </div>
             <hr/>
             <div className="container">
+                <h2 id="datVe">Chọn Rạp</h2>
                 <div className="row">
                     <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         {thongTinPhim.heThongRapChieu?.map((heThongRap,index)=>{
-                            return<a key={index} className="nav-link " id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            return<a key={index} className="nav-link  movieDetail__cinema" id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
                                     <img src={heThongRap.logo} style={{width:'35px',height:'35px'}}/>
                                     <span className="ml-3">{heThongRap.tenHeThongRap}</span>
                                     </a>
@@ -57,20 +73,22 @@ export default function MovieDetail(props) {
                         <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
                         <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> */}
                     </div>
-                    <div className="tab-content col-8"  id="v-pills-tabContent">
+                    <div className="tab-content col-7"  id="v-pills-tabContent">
                         
                              {thongTinPhim.heThongRapChieu?.map((heThongRap,index)=>{
-                                 return <div 
-                                 className="tab-pane fade show " id={heThongRap.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                 return <div key={index}
+                                 className="tab-pane fade show" id={heThongRap.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     {/* {heThongRap.tenHeThongRap} */}
                                     {heThongRap.cumRapChieu?.map((cumRap,index)=>{
-                                        return <div key={index}>
+                                        return <div key={index} >
                                            <p>{cumRap.tenCumRap}</p> 
                                            {cumRap.lichChieuPhim?.slice(0,12).map((lichChieu,index)=>{
-                                               return  <NavLink to={`/showtime/${lichChieu.maLichChieu}`} key={index}>
+                                               return <button className="btn-orange mr-1 mb-1">
+                                                   <NavLink to={`/showtime/${lichChieu.maLichChieu}`} key={index} className="movieDetail__content--date">
                                                   
-                                                       {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
-                                                   </NavLink>
+                                                  {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
+                                              </NavLink>
+                                               </button> 
                                               
                                            })}
                                         </div>

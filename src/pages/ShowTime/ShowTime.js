@@ -1,6 +1,7 @@
 import React, {useState, useEffect, Fragment } from 'react'
-import { qlPhimService } from '../service/quanLiPhimService';
-import { userLogin } from '../settings/config';
+import { qlPhimService } from '../../service/quanLiPhimService';
+import { userLogin } from '../../settings/config';
+import './ShowTime.scss'
 
 
 export default function ShowTime(props) {

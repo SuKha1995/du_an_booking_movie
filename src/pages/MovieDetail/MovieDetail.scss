@@ -1,0 +1,56 @@
+@import "../../assets/scss/Helper/mixin";
+@import "../../assets/scss/Helper/variables";
+
+.moviDetail {
+  background-image: url(../../img/bg-img/night-sky.webp);
+  background-size: cover;
+
+  .movieDetail__Img {
+    padding: 25px 0 5px 25px;
+    img {
+      width: 280px;
+      height: 400px;
+    }
+  }
+  .movieDetail__content {
+    .movieDetail__content--nameFilm {
+      @include styleText($fs-3, $fw-bold-0, $color-white-cream);
+      letter-spacing: 2px;
+    }
+    .movieDetail__content--painted {
+      @include styleText($fs-0, $fw-normal, $color-white-cream);
+      letter-spacing: 2px;
+      padding-top: 20px;
+    }
+    .movieDetail__content--text {
+      @include styleText($fs-0, $fw-bold-0, $color-white-cream);
+      padding-top: 15px;
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+    .btn-datVe {
+      color: $color-gray-6;
+      font-weight: $fw-bold;
+      background: linear-gradient(to right, $color-orange-0, $color-orange-1);
+      padding: 7px 15px;
+      border: 1px solid $color-white-0;
+      border-radius: 5px;
+      box-shadow: none;
+
+      &:hover {
+        background: $color-white-0;
+        border-color: $color-orange-1;
+        color: $color-orange-1;
+        box-shadow: none;
+      }
+    }
+    
+  }
+}
+
+.movieDetail__content--date{
+    color: $color-gray-4;
+    &:hover{
+        color: $color-gray-4;
+    }
+}

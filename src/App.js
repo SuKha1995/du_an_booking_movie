@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import { BrowserRouter ,Redirect, Switch, Route} from 'react-router-dom';
-import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate'
-import Admin from './pages/Admin';
-import {HomeTemplate} from './templates/HomeTemplate/HomeTemplate'
-import Home from './pages/Home';
-import MovieDetail from './pages/MovieDetail';
-import ShowTime from './pages/ShowTime';
-import Login from './pages/Login';
-import Regis from './pages/Regis';
-import "slick-carousel/slick/slick.css"; 
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import Admin from './pages/Admin';
+import Home from './pages/Home/Home';
+import Login from './pages/Login';
+import MovieDetail from './pages/MovieDetail/MovieDetail';
 import NotFound from './pages/NotFound';
-import { userAction } from './redux/type/userType';
+import Regis from './pages/Regis';
+import ShowTime from './pages/ShowTime/ShowTime';
 import User from './pages/User';
 import UserEdit from './pages/UserEdit';
+import { userAction } from './redux/type/userType';
+import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
+import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 
  class App extends Component {

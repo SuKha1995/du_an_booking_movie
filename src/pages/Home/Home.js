@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { qlPhimService } from '../service/quanLiPhimService';
+import { qlPhimService } from '../../service/quanLiPhimService';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
 import Slider from 'react-slick';
-import '../assets/layout/HomeLayout.scss';
+import './HomeLayout.scss';
 
 export default function Home(props) {
 
