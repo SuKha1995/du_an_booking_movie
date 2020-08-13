@@ -13,6 +13,7 @@ export const LoginAction = (user) =>{
             
         }).catch(err=>{
             console.log(err) 
+            alert('Tài khoản hoặc Mật khẩu không đúng')
         })
         
     }

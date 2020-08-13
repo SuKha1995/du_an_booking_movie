@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { UserService } from '../service/userService';
-import { userLogin } from '../settings/config';
-import UserModal from './UserEdit'
 import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../assets/layout/UserLayout.scss'
+import '../assets/layout/UserLayout.scss';
+import { UserService } from '../service/userService';
+import {useSelector , useDispatch} from 'react-redux'
 
 export default function User(props) {
     let [thongTinNguoiDung, setThongTinNguoiDung] = useState([])
+    let thongTinTaiKhoan = useSelector(state => state.user.thongTinDangNhap)
+    let taiKhoan = thongTinTaiKhoan.taiKhoan
 
-
-    const getTaiKhoan = localStorage.getItem('userLogin')
-    const TK = JSON.parse((getTaiKhoan));
-    const taiKhoan = TK.taiKhoan
 
     let taiKhoanDN = {
         taiKhoan: taiKhoan
     }
-
-
+    
     useEffect(() => {
 
         UserService.UserInfo(taiKhoanDN).then(res => {
-            console.log(res.data)
             setThongTinNguoiDung(res.data)
+            
         }).catch(err => {
             console.log(err)
         })
-    }, [])
+       
+    }, [thongTinTaiKhoan])
+    console.log('thongTin',thongTinTaiKhoan )
 
 
     return (

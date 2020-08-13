@@ -7,7 +7,23 @@ import '../templates/HomeTemplate/HomeTemplate.scss'
 
 export default function Header(props) {
     
-    const user = useSelector(state => state.user.thongTinDangNhap)
+    let user = useSelector(state => state.user.thongTinDangNhap)
+    let maNguoiDung = user.maLoaiNguoiDung;
+    console.log('object',maNguoiDung)
+    let loaiNguoiDung = ''
+    
+    const checkUser = (loaiNguoiDung) =>{
+        
+        if(maNguoiDung == 'KhachHang'){
+            loaiNguoiDung = "/user"
+        }
+        else{
+            loaiNguoiDung = "/admin"
+        }
+        return loaiNguoiDung
+    }
+    
+    
   
     return (
         <div className="header sticky-top">
@@ -44,7 +60,8 @@ export default function Header(props) {
                 <span className="mr-2 "><i class="fa fa-user-circle icon-login"></i></span>
                 <div>
                     <div>
-                        {user ? <NavLink to="/user" className="login mr-3">Hi, {user.taiKhoan}</NavLink> : <div className="mr-5" >
+                        
+                        {user ? <NavLink to={checkUser(loaiNguoiDung)} className="login mr-3">Hi, {user.taiKhoan}</NavLink> : <div className="mr-5" >
                             <NavLink className="login mr-3" to="/regis">Đăng Ký</NavLink>
 
                             <NavLink className="login" to="/login">Đăng Nhập</NavLink>

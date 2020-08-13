@@ -1,16 +1,13 @@
+
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import './AdminTemplate.scss';
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
-
-
+import Header from '../../components/Admin/Header';
 const AdminLayout = (props) => {
     return (
         <Fragment>
-            
+            <Header/>
+            {props.children}
         </Fragment>
     )
 }

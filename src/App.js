@@ -3,19 +3,20 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import Admin from './pages/Admin';
+import Admin from './pages/Admin/Admin';
 import Home from './pages/Home/Home';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
 import NotFound from './pages/NotFound';
-import Regis from './pages/Regis';
+import Regis from './pages/registration/Regis';
 import ShowTime from './pages/ShowTime/ShowTime';
 import User from './pages/User';
-import UserEdit from './pages/UserEdit';
+import UserEdit from './pages/UserUpdate/UserEdit';
 import { userAction } from './redux/type/userType';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
+import AddUser from './pages/Admin/AddUser';
 
  class App extends Component {
   render() {
@@ -24,6 +25,7 @@ import { UserTemplate } from './templates/UserTemplate/UserTemplate';
         <Switch>
           {/* <HomeTemplate exact path="/" component={Home}/> */}
           <AdminTemplate exact path="/admin" component={Admin}/>
+          <AdminTemplate exact path="/addUser" component={AddUser}/>
           <HomeTemplate exact path="/moviedetail/:maPhim" component={MovieDetail}/>
           <HomeTemplate exact path="/showtime/:maLichChieu" component={ShowTime}/>
           <HomeTemplate exact path="/home" component={Home}/>
