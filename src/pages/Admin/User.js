@@ -17,10 +17,10 @@ export default function User() {
             console.log(err)
         })
     }
-    const DeleteUser = (taiKhoan) =>{
+    const DeleteUser = (taiKhoan) =>{ // gọi api xóa người dùng
         adminService.DeleteUser(taiKhoan).then(res =>{
-            console.log(res.data)
             console.log('xóa thành công')
+           
         }).catch(err =>{
             console.log(err)
         })
@@ -39,7 +39,7 @@ export default function User() {
      const renderListUser = () =>{
          return danhSachNguoiDung?.map((user,index)=>{
              return <tr>
-                 {/* <td>{user.index}</td> */}
+                 <td>{index + 1}</td>
                  <td>{user.taiKhoan}</td>
                  <td>{user.matKhau}</td>
                  <td>{user.hoTen}</td>
@@ -65,26 +65,30 @@ export default function User() {
                 onSubmit={_handleSubmit}
                 render={(formimProps) => (
                     <Form>
-                        <div>
+                        <span>
                             <label>Nhập Tên Tài Khoản Người Dùng</label>
                             <Field className="form-control"
+                            style={{width: 500}}
                                 name="taiKhoan"
                                 type="text"
                                 onChange={formimProps.handleChange}
                             />
-                        </div>
-                        <button className="btn btn-success" type="submit">Tìm</button>
+                        </span>
+                        <span>
+                             <button className="btn btn-success" type="submit">Tìm</button>
+                        </span>
+                        
                         
                     </Form>
                 )}
                 >
                
            </Formik>
-           <div style={{ height: 600, overflowY: 'scroll', padding: 5, border: '1px solid #ccc' }}>
+           <div style={{ height: 600, overflowY: 'scroll', padding: 0, border: '1px solid #ccc' }}>
                <table className="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            {/* <th>STT</th> */}
+                            <th>STT</th>
                             <th>Tài Khoản</th>
                             <th>Mật Khẩu</th>
                             <th>Họ Tên</th>
@@ -100,17 +104,7 @@ export default function User() {
                
               
            </div>
-           {/* <div>
-                     <button onClick={() => changePage(1)}>1</button> 
-                    <button onClick={() => changePage(2)}>2</button>
-                    <button onClick={() => changePage(3)}>3</button> 
-                    <button onClick={() => changePage(4)}>4</button>
-                    <button onClick={() => changePage(5)}>5</button>
-                    <button onClick={() => changePage(6)}>6</button>
-                    <button onClick={() => changePage(7)}>7</button>
-           </div> */}
            
-
         </div>
     )
 }
