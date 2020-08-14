@@ -9,7 +9,7 @@ export const LoginAction = (user) =>{
             dispatch(userAction(res.data)); //dispatch action lưu dữ liệu lên reducers
             localStorage.setItem('userLogin', JSON.stringify(res.data)) // lưu dưới local
             // 
-            dispatch(checkLogin())
+            dispatch(checkLogin(true))
             
         }).catch(err=>{
             console.log(err) 

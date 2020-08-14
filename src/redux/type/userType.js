@@ -5,9 +5,9 @@ export const userAction = (user) =>{
     }
     
 }
-export const checkLogin =(user)=>{
+export const checkLogin =(value)=>{
     return {
         type: 'KIEM_TRA_DANG_NHAP',
-        payload: true
+        payload: value
     }
 }

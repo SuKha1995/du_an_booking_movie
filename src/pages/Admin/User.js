@@ -26,6 +26,7 @@ export default function User() {
     const DeleteUser = (taiKhoan) =>{ // gọi api xóa người dùng
         adminService.DeleteUser(taiKhoan).then(res =>{
             console.log('xóa thành công')
+            dispatch(getListUserAction())
            
         }).catch(err =>{
             console.log(err)

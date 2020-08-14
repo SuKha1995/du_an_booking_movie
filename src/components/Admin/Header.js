@@ -1,7 +1,17 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import { useSelector,useDispatch } from 'react-redux'
+import { userAction, checkLogin } from '../../redux/type/userType'
 
 export default function Header() {
+    let user = useSelector(state => state.user.thongTinDangNhap)
+    const dispatch = useDispatch()
+    const hangdleLogOut = ()=>{
+        localStorage.clear()
+        dispatch(userAction(''))
+        dispatch(checkLogin(false))
+    }
+
     return (
         <div>
             <div className="header ">
@@ -21,7 +31,7 @@ export default function Header() {
                 </div>
                
                 <div>
-                    {/* {user?  <NavLink to="/home" className="btn-orange" onClick={hangdleLogOut}>Đăng Xuất</NavLink> : ""} */}
+                    {user?  <NavLink to="/home" className="btn-orange" onClick={hangdleLogOut}>Đăng Xuất</NavLink> : ""}
                    
                 </div>
 

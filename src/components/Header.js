@@ -11,7 +11,7 @@ export default function Header(props) {
     let maNguoiDung = user.maLoaiNguoiDung;
     console.log('object',maNguoiDung)
     let loaiNguoiDung = ''
-    
+    console.log('user',user)
     const checkUser = (loaiNguoiDung) =>{
         
         if(maNguoiDung == 'KhachHang'){
@@ -61,7 +61,9 @@ export default function Header(props) {
                 <div>
                     <div>
                         
-                        {user ? <NavLink to={checkUser(loaiNguoiDung)} className="login mr-3">Hi, {user.taiKhoan}</NavLink> : <div className="mr-5" >
+                        {user ? <NavLink to={checkUser(loaiNguoiDung)} className="login mr-3">Hi, {user.taiKhoan}</NavLink> :
+                         
+                        <div className="mr-5" >
                             <NavLink className="login mr-3" to="/regis">Đăng Ký</NavLink>
 
                             <NavLink className="login" to="/login">Đăng Nhập</NavLink>

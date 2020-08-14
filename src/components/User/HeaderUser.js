@@ -1,14 +1,18 @@
 import React from 'react'
 import {NavLink, useHistory} from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector ,useDispatch} from 'react-redux'
+import {userAction, checkLogin} from '../../redux/type/userType'
 export default function HeaderUser() {
     const user = useSelector(state => state.user.thongTinDangNhap);
     
     const getCheckLogin = useSelector(state => state.user.checkLogin);
+    const dispatch = useDispatch();
     const history = useHistory();
     const hangdleLogOut = () => {
         localStorage.clear()
 
+        dispatch(userAction(''))
+        dispatch(checkLogin(false))
         history.push('/home')
     }
     return (
