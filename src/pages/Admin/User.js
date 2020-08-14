@@ -3,9 +3,13 @@ import { useDispatch, useSelector, } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { adminService } from '../../service/AdminService'
+import { getListUserAction } from '../../redux/actions/adminAction'
 
 export default function User() {
-    let [danhSachNguoiDung,setDanhSachNguoiDung] = useState([]);
+    // let [danhSachNguoiDung,setDanhSachNguoiDung] = useState([]);
+    let danhSachNguoiDung = useSelector(state => state.admin.listUser)
+    let [nguoiDungTimThay,setNguoiDungTimThay] = useState([]);
+    const dispatch = useDispatch()
     let tendangnhap= ""
     const _handleSubmit = (values) => { //gọi api tìm người dùng
         // console.log(values)
@@ -13,10 +17,12 @@ export default function User() {
         // console.log('object',tendangnhap)
         adminService.UserSearch(tendangnhap).then(res => {
             console.log(res.data)
+            setNguoiDungTimThay(res.data)
         }).catch(err => {
             console.log(err)
         })
-    }
+    };
+    console.log('danhsach',danhSachNguoiDung)
     const DeleteUser = (taiKhoan) =>{ // gọi api xóa người dùng
         adminService.DeleteUser(taiKhoan).then(res =>{
             console.log('xóa thành công')
@@ -24,21 +30,30 @@ export default function User() {
         }).catch(err =>{
             console.log(err)
         })
-    }
+    };
+
     useEffect(() => {
 
-        adminService.ListUser().then(listItems => { // gọi api lấy danh sách nguoi dùng phân trang
-            setDanhSachNguoiDung(listItems.data)
-            console.log(listItems.data)
-        }).catch(error => {
-            console.log(error)
-        });
+        dispatch(getListUserAction())
 
     }, []);
+
+    const renderUserFind = () =>{
+        return nguoiDungTimThay?.map((userFind,index) =>{
+            return <tr key={index}>
+                    <td>{userFind.taiKhoan}</td>
+                    <td>{userFind.matKhau}</td>
+                    <td>{userFind.hoTen}</td>
+                    <td>{userFind.email}</td>
+                    <td>{userFind.soDt}</td>
+                </tr>
+            
+        })
+    }
     
      const renderListUser = () =>{
-         return danhSachNguoiDung?.map((user,index)=>{
-             return <tr>
+         return danhSachNguoiDung.map((user,index)=>{
+             return <tr key={index}>
                  <td>{index + 1}</td>
                  <td>{user.taiKhoan}</td>
                  <td>{user.matKhau}</td>
@@ -51,22 +66,24 @@ export default function User() {
                  </td>
              </tr>
          })
+
      }
     return (
         <div >
-            <div>
-                <NavLink to="/addUser">Thêm Người Dùng</NavLink>
+            <button className="btn btn-success my-3">
+                <NavLink to="/addUser" style={{color: 'white'}}>Thêm Người Dùng</NavLink>
 
-            </div>
+            </button>
             <Formik
                 initialValues={{
                     taiKhoan:""
                 }}
+                
                 onSubmit={_handleSubmit}
                 render={(formimProps) => (
                     <Form>
                         <span>
-                            <label>Nhập Tên Tài Khoản Người Dùng</label>
+                            <label>Nhập Tên Tài Khoản Người Dùng Cần Tìm</label>
                             <Field className="form-control"
                             style={{width: 500}}
                                 name="taiKhoan"
@@ -84,7 +101,27 @@ export default function User() {
                 >
                
            </Formik>
-           <div style={{ height: 600, overflowY: 'scroll', padding: 0, border: '1px solid #ccc' }}>
+
+            <div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                           
+                            <th>Tài Khoản</th>
+                            <th>Mật Khẩu</th>
+                            <th>Họ Tên</th>
+                            <th>Email</th>
+                            <th>Số ĐT</th>
+                            <th>Chức Năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {renderUserFind()}
+                    </tbody>
+                </table>
+            </div>
+
+           <div style={{ height: 600, overflowY: 'scroll', padding: 0, border: '1px solid #ccc' }} className="mt-5 text-center">
                <table className="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -104,6 +141,7 @@ export default function User() {
                
               
            </div>
+           {danhSachNguoiDung.taiKhoan}
            
         </div>
     )
