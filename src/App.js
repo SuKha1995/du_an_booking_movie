@@ -17,6 +17,7 @@ import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import AddUser from './pages/Admin/AddUser';
+import AdminUpdateUser from './pages/Admin/AdminUpdateUser';
 
  class App extends Component {
   render() {
@@ -26,6 +27,7 @@ import AddUser from './pages/Admin/AddUser';
           {/* <HomeTemplate exact path="/" component={Home}/> */}
           <AdminTemplate exact path="/admin" component={Admin}/>
           <AdminTemplate exact path="/addUser" component={AddUser}/>
+          <AdminTemplate exact path="/updateUser" component={AdminUpdateUser}/>
           <HomeTemplate exact path="/moviedetail/:maPhim" component={MovieDetail}/>
           <HomeTemplate exact path="/showtime/:maLichChieu" component={ShowTime}/>
           <HomeTemplate exact path="/home" component={Home}/>

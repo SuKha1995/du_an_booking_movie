@@ -1,38 +1,36 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import * as yup from 'yup'
-import { userAction } from '../../redux/type/userType'
 import { UserService } from '../../service/userService'
+import { adminService } from '../../service/AdminService'
 
-export default function UserEdit(props) {
+export default function AdminUpdateUser() {
     const history = useHistory();
     const dispatch = useDispatch()
-    // const thongTinNguoiDung = JSON.parse(localStorage.getItem('userLogin'))
 
+    // let thongTinNguoiDung = useSelector(state => state.admin.userUpdate)
     let thongTinNguoiDung = useSelector(state => state.user.thongTinDangNhap)
     
     const RegisSchema = yup.object().shape({
         taiKhoan: yup.string().required("*Vui lòng nhập tên tài khoản"),
         matKhau: yup.string().required("*Vui lòng nhập tên tài khoản").min(8, "*Mật khẩu phải dài hởn 8 kí tự"),
         email: yup.string().required("*Vui lòng nhập email").email("*Email không đúng"),
-        soDT: yup.string().required("*Vui lòng nhập số điện thoại").matches("^[0-9]+$", "Vui lòng nhập đúng số điện thoại"),
+        soDt: yup.string().required("*Vui lòng nhập số điện thoại").matches("^[0-9]+$", "Vui lòng nhập đúng số điện thoại"),
         maNhom: yup.string().required("*Vui lòng chọn mã nhóm "),
 
         hoTen: yup.string().required("*Vui lòng nhập họ tên")
     })
-    const _handleSubmit = (values) => {
-        UserService.UserEditInfo(values).then(res => {
-            // console.log(res.data)
-
-            dispatch(userAction(values))
-            history.push('/user')
+    const handleUpdate = (values) => {
+        adminService.UpdateUser(values).then(res => {
+            // dispatch(userAction(values))
+            history.push('/admin')
         }).catch(err => {
             console.log(err)
         })
     }
-   
+
     return (
         <div className="formRegis">
             <div className="w-50 mx-auto">
@@ -42,14 +40,14 @@ export default function UserEdit(props) {
                         taiKhoan: thongTinNguoiDung.taiKhoan,
                         matKhau: thongTinNguoiDung.matKhau,
                         email: thongTinNguoiDung.email,
-                        soDT: thongTinNguoiDung.soDT,
+                        soDt: thongTinNguoiDung.soDt,
                         maNhom: thongTinNguoiDung.maNhom,
                         maLoaiNguoiDung: thongTinNguoiDung.maLoaiNguoiDung,
                         hoTen: thongTinNguoiDung.hoTen,
 
                     }}
                     validationSchema={RegisSchema}
-                    onSubmit={_handleSubmit}
+                    onSubmit={handleUpdate}
                     render={(formikProps) => (
                         <Form>
                             <div className="form-group">
@@ -99,12 +97,12 @@ export default function UserEdit(props) {
                             <div className="form-group">
                                 <label >Số điện thoại</label>
                                 <Field className="form-control"
-                                    name="soDT"
+                                    name="soDt"
                                     type="text"
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="soDT">
+                                <ErrorMessage name="soDt">
                                     {
                                         (err) => <div>{err}</div>
                                     }
@@ -145,3 +143,4 @@ export default function UserEdit(props) {
 
     )
 }
+

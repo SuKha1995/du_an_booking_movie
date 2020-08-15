@@ -25,6 +25,26 @@ import React, { Component } from 'react'
 
         })
     }
+    AddUser = (values) =>{
+        return axios({
+            url:`${domain}/QuanLyNguoiDung/ThemNguoiDung`,
+            method:'POST',
+            data: values,
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+    }
+    UpdateUser = (data)=>{
+        return axios({
+            url: `${domain}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+            method: 'PUT',
+            data,
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+    }
     
      
 }

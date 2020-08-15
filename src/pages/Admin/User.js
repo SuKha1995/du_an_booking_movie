@@ -1,15 +1,17 @@
 import React, { useState ,useEffect} from 'react'
 import { useDispatch, useSelector, } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useHistory } from 'react-router-dom'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { adminService } from '../../service/AdminService'
-import { getListUserAction } from '../../redux/actions/adminAction'
+import { getListUserAction, adminUpdateAction } from '../../redux/actions/adminAction'
+
 
 export default function User() {
     // let [danhSachNguoiDung,setDanhSachNguoiDung] = useState([]);
     let danhSachNguoiDung = useSelector(state => state.admin.listUser)
     let [nguoiDungTimThay,setNguoiDungTimThay] = useState([]);
     const dispatch = useDispatch()
+    const history = useHistory()
     let tendangnhap= ""
     const _handleSubmit = (values) => { //gọi api tìm người dùng
         // console.log(values)
@@ -26,12 +28,16 @@ export default function User() {
     const DeleteUser = (taiKhoan) =>{ // gọi api xóa người dùng
         adminService.DeleteUser(taiKhoan).then(res =>{
             console.log('xóa thành công')
-            dispatch(getListUserAction())
+            dispatch(getListUserAction()) 
            
         }).catch(err =>{
             console.log(err)
         })
     };
+    const updateUser = (user)=>{
+        dispatch(adminUpdateAction(user))
+        history.push('/updateUser')
+    }
 
     useEffect(() => {
 
@@ -62,7 +68,9 @@ export default function User() {
                  <td>{user.email}</td>
                  <td>{user.soDt}</td>
                  <td className="text-center">
-                     <button className="btn btn-success mr-2">Sửa</button>
+                     <button className="btn btn-success mr-2" onClick={()=> updateUser(user)}>
+                         Sửa
+                     </button>
                      <button className="btn btn-danger" onClick={()=> DeleteUser(user.taiKhoan)}>Xóa</button>
                  </td>
              </tr>
@@ -104,7 +112,7 @@ export default function User() {
            </Formik>
 
             <div>
-                <table className="table">
+                <table className="table table-dark">
                     <thead>
                         <tr>
                            

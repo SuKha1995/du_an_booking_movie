@@ -5,3 +5,9 @@ export const getListUser = (listUser) =>{
     }
     
 }
+export const updateUser = (user) =>{
+    return {
+        type: 'CAP_NHAT_THONG_TIN_NGUOI_DUNG',
+        payload: user
+    }
+}
