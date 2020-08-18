@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux'
-import '../templates/HomeTemplate/HomeTemplate.scss'
+import '../../templates/HomeTemplate/HomeTemplate.scss'
 
 
 

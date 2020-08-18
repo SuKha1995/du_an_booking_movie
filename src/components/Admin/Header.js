@@ -31,8 +31,12 @@ export default function Header() {
                 </div>
                
                 <div>
-                    {user?  <NavLink to="/home" className="btn-orange" onClick={hangdleLogOut}>Đăng Xuất</NavLink> : ""}
-                   
+                    {user?  <div>
+                        <NavLink to="/userEdit" style={{color: 'white', fontSize:18}} className="mr-3" >Hi, {user.taiKhoan}</NavLink>
+                        <NavLink to="/home" className="btn-orange" onClick={hangdleLogOut}>Đăng Xuất</NavLink>
+                        </div>
+                    : ""}
+
                 </div>
 
 

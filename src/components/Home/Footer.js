@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../templates/HomeTemplate/HomeTemplate.scss';
+import '../../templates/HomeTemplate/HomeTemplate.scss';
+
 
 
 export default class Footer extends Component {

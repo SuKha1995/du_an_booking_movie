@@ -42,7 +42,7 @@ export default function UserEdit(props) {
                         taiKhoan: thongTinNguoiDung.taiKhoan,
                         matKhau: thongTinNguoiDung.matKhau,
                         email: thongTinNguoiDung.email,
-                        soDT: thongTinNguoiDung.soDT,
+                        soDt: thongTinNguoiDung.soDt,
                         maNhom: thongTinNguoiDung.maNhom,
                         maLoaiNguoiDung: thongTinNguoiDung.maLoaiNguoiDung,
                         hoTen: thongTinNguoiDung.hoTen,
@@ -57,7 +57,7 @@ export default function UserEdit(props) {
                                 <Field className="form-control"
                                     name="taiKhoan"
                                     type="text"
-                                    // values= {thongTinNguoiDung.taiKhoan}
+                                   
                                     onChange={formikProps.handleChange}
 
                                 />
@@ -71,8 +71,8 @@ export default function UserEdit(props) {
                                 <label >Mật khẩu</label>
                                 <Field className="form-control"
                                     name="matKhau"
-                                    type="password  "
-                                    // values={thongTinNguoiDung.matKhau}
+                                    type="password"
+                                    
                                     onChange={formikProps.handleChange}
 
                                 />
@@ -99,14 +99,42 @@ export default function UserEdit(props) {
                             <div className="form-group">
                                 <label >Số điện thoại</label>
                                 <Field className="form-control"
-                                    name="soDT"
+                                    name="soDt"
                                     type="text"
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="soDT">
+                                <ErrorMessage name="soDt">
                                     {
                                         (err) => <div>{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
+                                <label >Mã nhóm</label>
+                                <Field className="form-control"
+                                    component="select"
+                                    name="maNhom"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                >
+                                    <option>GP01</option>
+                                    <option>GP02</option>
+                                    <option>GP03</option>
+                                    <option>GP04</option>
+                                    <option>GP05</option>
+                                    <option>GP06</option>
+                                    <option>GP07</option>
+                                    <option>GP08</option>
+                                    <option>GP09</option>
+                                    <option>GP10</option>
+
+
+                                </Field>
+                                <ErrorMessage name="maNhom">
+                                    {
+                                        (err) => <div >{err}</div>
                                     }
                                 </ErrorMessage>
                             </div>

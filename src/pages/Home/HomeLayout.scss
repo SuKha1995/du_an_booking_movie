@@ -71,6 +71,7 @@
     }
     .btn {
       z-index: 101;
+      transition: all .0s;
       display: none;
       position: absolute;
       top: 70%;
@@ -80,13 +81,23 @@
       height: 40px;
       color: $color-white-0;
       // background-color: $color-orange-1;
-      background-image: linear-gradient(
+      background: linear-gradient(
         to right,
         $color-orange-0,
         $color-orange-1
       );
-
-      border: none;
+      border:1px solid $color-white-0;
+      // border: none;
+      &:hover{
+        background: $color-white-0;
+        border-color: $color-orange-1;
+        color: $color-orange-1;
+        box-shadow: none;
+        // .card-img{
+        //   box-shadow: 2px 2px 5px $color-white-1, -2px -2px 5px $color-white-1;
+        // }
+      }
+      
     }
     .card-date {
       position: absolute;
@@ -106,15 +117,17 @@
     .card-img .card-bg {
       display: inline;
     }
-    .card-body .btn {
+     .btn {
       display: inline;
+      
+      
     }
     .card-title {
       @include styleText($fs-2, $fw-normal, $color-white-0);
     }
     .card-play {
       border: 2px solid $color-orange-0;
-      color: $color-orange-0;
+      color: $color-orange-0 !important;
     }
     .card-date{
         display: none;
@@ -132,33 +145,91 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     font-size: 20px;
-    color: $color-white-0;
+    color: $color-white-0 !important;
+    background-color: transparent;
+    &:hover{
+      color: $color-orange-1 !important;
+      border: 2px solid $color-orange-1;
+      width: 52px;
+      height: 52px;
+      padding: 8px 0 0 16px;
+    }
   }
 }
 //
+.heThongRap{
+  background: linear-gradient(
+    to right,
+    $color-orange-0,
+    $color-orange-1
+  );
+  padding:0;
+  .heThongRap__content {
+    color: $color-white-0;
+      font-size: $fs-2;
+      font-weight: $fw-bold-0;
+      padding: 0;
+      border: 1px solid $color-orange-0;
+      border-radius: 0;
+     
+      p{
+        padding: 10px 20px;
+        margin: 0;
+      }
+      &:hover{
+        background: $color-white-0;
+    color: $color-orange-1;
+     border-radius: 0;
+     border: 1px solid $color-orange-0;
+      }
+     
 
-.heThongRap {
-  .heThongRap__body {
-    background-color: $color-gray-2;
-    margin-bottom: 10px;
-    height: 40px;
-    border-radius: 5px;
-
-    .heThongRap__rap {
-      @include styleText($fs-2, $fw-bold-0, $color-black-light);
-      border: none;
-      padding: 5px;
-      height: 40px;
-    }
-    &:active {
-      background-image: linear-gradient(
-        to right,
-        $color-orange-0,
-        $color-orange-1
-      );
-    }
-    // &:hover{
-    //     background-image: linear-gradient(to right , $color-orange-0 , $color-orange-1);
-    // }
   }
+  .nav-link.active{
+    background: $color-white-0;
+    color: $color-orange-1;
+     border-radius: 0;
+    
+  }
+  
 }
+
+  .cumRap{
+    background: linear-gradient(
+      to right,
+      $color-orange-0,
+      $color-orange-1
+    );
+    border: 1px solid $color-orange-0;
+      border-radius: 0;
+     
+      .cumRap__body{
+        color: $color-white-0;
+        .tenCumRap{
+          font-size: $fs-2;
+          font-weight: $fw-bold-0;
+         
+         }
+         .diaChi{
+          color: $color-gray-4 !important;
+        }
+        &:hover{
+          background: $color-white-0;
+          color: $color-orange-1;
+           border-radius: 0;
+        }
+        
+      }
+    
+    .nav-link.active{
+      background: $color-white-0;
+      color: $color-orange-1;
+       border-radius: 0;
+      
+    }
+  }
+  .tenPhim{
+    @include styleText($fs-2,$fw-bold-0,$color-gray-4)
+  }
+  
+

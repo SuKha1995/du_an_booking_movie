@@ -12,7 +12,7 @@ export default function Regis() {
         taiKhoan: yup.string().required("*Vui lòng nhập tên tài khoản"),
         matKhau: yup.string().required("*Vui lòng nhập tên tài khoản").min(8, "Mật khẩu phải dài hởn 8 kí tự"),
         email: yup.string().required("*Vui lòng nhập email").email("Email không đúng"),
-        soDT: yup.string().required("*Vui lòng nhập số điện thoại").matches("^[0-9]+$", "*Vui lòng nhập đúng số điện thoại"),
+        soDt: yup.string().required("*Vui lòng nhập số điện thoại").matches("^[0-9]+$", "*Vui lòng nhập đúng số điện thoại"),
         maNhom: yup.string().required("*Vui lòng chọn mã nhóm "),
 
         hoTen: yup.string().required("*Vui lòng nhập họ tên")
@@ -44,7 +44,7 @@ export default function Regis() {
                         taiKhoan: "",
                         matKhau: "",
                         email: "",
-                        soDT: "",
+                        soDt: "",
                         maNhom: "GP01",
 
                         hoTen: "",
@@ -99,12 +99,12 @@ export default function Regis() {
                             <div className="form-group">
                                 <label >Số điện thoại</label>
                                 <Field className="form-control"
-                                    name="soDT"
+                                    name="soDt"
                                     type="text"
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="soDT">
+                                <ErrorMessage name="soDt">
                                     {
                                         (err) => <div >{err}</div>
                                     }

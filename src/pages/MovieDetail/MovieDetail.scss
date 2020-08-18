@@ -54,3 +54,25 @@
         color: $color-gray-4;
     }
 }
+.MovieDetail{
+  .MovieDetail__cumRap{
+    @include styleText($fs-2,$fw-bold-0,$color-white-0);
+    background: linear-gradient(to right, $color-orange-0, $color-orange-1);
+    border-radius: 0;
+    border: 1px solid $color-orange-0;
+    &:hover{
+      background: $color-white-0;
+      color: $color-orange-1;
+    }
+    
+  }
+  
+  .nav-link.active{
+    background: $color-white-0;
+    color: $color-orange-1;
+     border-radius: 0;
+  }
+}
+.tenRap{
+  @include styleText($fs-2,$fw-bold-0,$color-gray-4)
+}

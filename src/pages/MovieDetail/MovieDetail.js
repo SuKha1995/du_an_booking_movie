@@ -60,18 +60,15 @@ export default function MovieDetail(props) {
             <div className="container">
                 <h2 id="datVe">Chọn Rạp</h2>
                 <div className="row">
-                    <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div className="nav flex-column nav-pills MovieDetail" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         {thongTinPhim.heThongRapChieu?.map((heThongRap,index)=>{
-                            return<a key={index} className="nav-link  movieDetail__cinema" id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            return<a key={index} className="nav-link MovieDetail__cumRap " id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
                                     <img src={heThongRap.logo} style={{width:'35px',height:'35px'}}/>
                                     <span className="ml-3">{heThongRap.tenHeThongRap}</span>
                                     </a>
                             
                         })}
-                        {/* <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> */}
+                        
                     </div>
                     <div className="tab-content col-7"  id="v-pills-tabContent">
                         
@@ -81,7 +78,7 @@ export default function MovieDetail(props) {
                                     {/* {heThongRap.tenHeThongRap} */}
                                     {heThongRap.cumRapChieu?.map((cumRap,index)=>{
                                         return <div key={index} >
-                                           <p>{cumRap.tenCumRap}</p> 
+                                           <p className="tenRap">{cumRap.tenCumRap}</p> 
                                            {cumRap.lichChieuPhim?.slice(0,12).map((lichChieu,index)=>{
                                                return <button className="btn-orange mr-1 mb-1">
                                                    <NavLink to={`/showtime/${lichChieu.maLichChieu}`} key={index} className="movieDetail__content--date">

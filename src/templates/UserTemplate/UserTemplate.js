@@ -1,7 +1,7 @@
 import React , {Component, Fragment} from 'react'
 import {Route} from 'react-router-dom'
 import HeaderUser from '../../components/User/HeaderUser'
-import Footer from '../../components/Footer'
+import Footer from '../../components/Home/Footer'
 
  const UserLayout = (props) =>{
     return (

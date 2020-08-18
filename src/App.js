@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import AddUser from './pages/Admin/AddUser';
 import Admin from './pages/Admin/Admin';
+import AdminUpdateUser from './pages/Admin/AdminUpdateUser';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
@@ -16,8 +18,6 @@ import { userAction } from './redux/type/userType';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
-import AddUser from './pages/Admin/AddUser';
-import AdminUpdateUser from './pages/Admin/AdminUpdateUser';
 
  class App extends Component {
   render() {

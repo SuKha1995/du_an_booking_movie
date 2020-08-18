@@ -10,8 +10,8 @@ export default function AdminUpdateUser() {
     const history = useHistory();
     const dispatch = useDispatch()
 
-    // let thongTinNguoiDung = useSelector(state => state.admin.userUpdate)
-    let thongTinNguoiDung = useSelector(state => state.user.thongTinDangNhap)
+    let thongTinNguoiDung = useSelector(state => state.admin.userUpdate)
+    // let thongTinNguoiDung = useSelector(state => state.user.thongTinDangNhap)
     
     const RegisSchema = yup.object().shape({
         taiKhoan: yup.string().required("*Vui lòng nhập tên tài khoản"),
@@ -69,7 +69,7 @@ export default function AdminUpdateUser() {
                                 <label >Mật khẩu</label>
                                 <Field className="form-control"
                                     name="matKhau"
-                                    type="password  "
+                                    type="password"
                                     // values={thongTinNguoiDung.matKhau}
                                     onChange={formikProps.handleChange}
 
@@ -105,6 +105,53 @@ export default function AdminUpdateUser() {
                                 <ErrorMessage name="soDt">
                                     {
                                         (err) => <div>{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
+                                <label >Mã nhóm</label>
+                                <Field className="form-control"
+                                    component="select"
+                                    name="maNhom"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                >
+                                    <option>GP01</option>
+                                    <option>GP02</option>
+                                    <option>GP03</option>
+                                    <option>GP04</option>
+                                    <option>GP05</option>
+                                    <option>GP06</option>
+                                    <option>GP07</option>
+                                    <option>GP08</option>
+                                    <option>GP09</option>
+                                    <option>GP10</option>
+
+
+                                </Field>
+                                <ErrorMessage name="maNhom">
+                                    {
+                                        (err) => <div >{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
+                                <label >Mã loai người dùng</label>
+                                <Field className="form-control"
+                                    component="select"
+                                    name="maLoaiNguoiDung"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                >
+                                    <option>KhachHang</option>
+                                    <option>QuanTri</option>
+                                    
+                                </Field>
+                                <ErrorMessage name="maLoaiNguoiDung">
+                                    {
+                                        (err) => <div >{err}</div>
                                     }
                                 </ErrorMessage>
                             </div>

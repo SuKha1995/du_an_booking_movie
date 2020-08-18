@@ -2,3 +2,31 @@
 @import "../../assets/scss/Helper/variables";
 
 //
+.showTime__left {
+  position: relative;
+  .mangHinh {
+    position: absolute;
+    top: 56px;
+    left: 336px;
+    @include styleText($fs-2, $fw-bold, $color-white-0);
+  }
+}
+
+.showTime__Right {
+  background-image: url(../../img/bg-img/bg-movieDetail2.jpg);
+  margin-top: 55px;
+  .tongTien {
+    font-size: 25px;
+    font-weight: bold;
+    color: $color-white-0;
+  }
+  .tenRap {
+    @include styleText($fs-2, $fw-normal, $color-white-0);
+  }
+  .tenPhim {
+    color: $color-orange-1;
+  }
+  .gioChieu {
+    @include styleText($fs-2, $fw-normal, $color-white-0);
+  }
+}
