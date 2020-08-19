@@ -12,7 +12,7 @@ import MovieDetail from './pages/MovieDetail/MovieDetail';
 import NotFound from './pages/NotFound';
 import Regis from './pages/registration/Regis';
 import ShowTime from './pages/ShowTime/ShowTime';
-import User from './pages/User';
+import User from './pages/User/User';
 import UserEdit from './pages/UserUpdate/UserEdit';
 import { userAction } from './redux/type/userType';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';

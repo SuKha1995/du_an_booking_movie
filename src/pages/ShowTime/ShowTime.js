@@ -1,17 +1,16 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { qlPhimService } from '../../service/quanLiPhimService';
 import { userLogin } from '../../settings/config';
 import './ShowTime.scss';
-import { useHistory } from 'react-router-dom'
 
 export default function ShowTime(props) {
     let history = useHistory();
     let [lichChieuPhim, setLichChieuPhim] = useState({});
     let [thongTinLichChieu, setThongTinlichChieu] = useState({ thongTinPhim: {}, danhSachGhe: [] });
     let [danhSachGheDangDat, setDanhSachGheDangDat] = useState([]);
-
-
-
+    // let isLogin = useSelector(state => state.user.checkLogin)
 
     useEffect(() => {
         let { maLichChieu } = props.match.params;
@@ -31,6 +30,7 @@ export default function ShowTime(props) {
         let taiKhoanNguoiDung = JSON.parse(localStorage.getItem(userLogin)).taiKhoan;
         //tài khoản mặt định
         //    let taiKhoanNguoiDung = "123@admin";
+      
         let thongTinDatVe = {
             "maLichChieu": props.match.params.maLichChieu,
             "danhSachVe": danhSachGheDangDat,
@@ -45,8 +45,6 @@ export default function ShowTime(props) {
             console.log(errors.response.data)
         })
     }
-
-
 
 
     const renderThongTinPhim = () => {

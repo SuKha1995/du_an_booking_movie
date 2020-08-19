@@ -17,11 +17,12 @@ export default function UserEdit(props) {
         taiKhoan: yup.string().required("*Vui lòng nhập tên tài khoản"),
         matKhau: yup.string().required("*Vui lòng nhập tên tài khoản").min(8, "*Mật khẩu phải dài hởn 8 kí tự"),
         email: yup.string().required("*Vui lòng nhập email").email("*Email không đúng"),
-        soDT: yup.string().required("*Vui lòng nhập số điện thoại").matches("^[0-9]+$", "Vui lòng nhập đúng số điện thoại"),
+        soDt: yup.string().required("*Vui lòng nhập số điện thoại").matches("^[0-9]+$", "Vui lòng nhập đúng số điện thoại"),
         maNhom: yup.string().required("*Vui lòng chọn mã nhóm "),
 
         hoTen: yup.string().required("*Vui lòng nhập họ tên")
     })
+    console.log('tt',thongTinNguoiDung )
     const _handleSubmit = (values) => {
         UserService.UserEditInfo(values).then(res => {
             // console.log(res.data)
@@ -42,11 +43,10 @@ export default function UserEdit(props) {
                         taiKhoan: thongTinNguoiDung.taiKhoan,
                         matKhau: thongTinNguoiDung.matKhau,
                         email: thongTinNguoiDung.email,
-                        soDt: thongTinNguoiDung.soDt,
+                        soDt: thongTinNguoiDung.soDT,
                         maNhom: thongTinNguoiDung.maNhom,
                         maLoaiNguoiDung: thongTinNguoiDung.maLoaiNguoiDung,
                         hoTen: thongTinNguoiDung.hoTen,
-
                     }}
                     validationSchema={RegisSchema}
                     onSubmit={_handleSubmit}
@@ -117,7 +117,6 @@ export default function UserEdit(props) {
                                     name="maNhom"
                                     type="text"
                                     onChange={formikProps.handleChange}
-
                                 >
                                     <option>GP01</option>
                                     <option>GP02</option>
@@ -129,8 +128,6 @@ export default function UserEdit(props) {
                                     <option>GP08</option>
                                     <option>GP09</option>
                                     <option>GP10</option>
-
-
                                 </Field>
                                 <ErrorMessage name="maNhom">
                                     {
@@ -157,14 +154,9 @@ export default function UserEdit(props) {
                                 <button className="btn btn-success" type="submit">Xác Nhận</button>
 
                             </div>
-
-
-
-
                         </Form>
                     )}
                 >
-
                 </Formik>
             </div>
 

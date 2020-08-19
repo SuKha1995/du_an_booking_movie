@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { qlPhimService } from '../../service/quanLiPhimService';
 import Carousel from './Carousel';
 import './HomeLayout.scss';
@@ -8,8 +9,10 @@ import './HomeLayout.scss';
 export default function Home(props) {
 
     let [danhSachPhim, setDanhSachPhim] = useState([]);
-    let [thongTinRap, setthongTinRap] = useState([])
-
+    let [thongTinRap, setthongTinRap] = useState([]);
+    let history = useHistory();
+    // let isLogin = useSelector(state => state.user.checkLogin)
+    let isLogin = JSON.parse(localStorage.getItem('userLogin'))
     //lay danh sách phim
     useEffect(() => {
 
@@ -24,7 +27,25 @@ export default function Home(props) {
     const openTrailer = (phim) => {
         window.open(phim)
     }
-
+    const datVe = (maPhim) =>{
+        
+        if (isLogin) {
+            
+            history.push(`./moviedetail/${maPhim}`)
+        }
+        else{
+            history.push('/login')
+        }
+    }
+    const datVeHeThongRap = (maLichChieu)=>{
+        if (isLogin) {
+            
+            history.push(`/showTime/${maLichChieu}`)
+        }
+        else{
+            history.push('/login')
+        }
+    }
     //lấy danh sách cụm rap
     useState(() => {
         qlPhimService.layThongTinLichChieuHeThongRap().then((result) => {
@@ -49,7 +70,8 @@ export default function Home(props) {
                 <div className="card-body">
                     <span className=" card-title ">{phim.tenPhim}</span>
                     <span className="card-date">{moment(phim.ngayKhoiChieu).format('MMMM Do YYYY')}</span>
-                    <NavLink className="btn" to={`/moviedetail/${phim.maPhim}`}>ĐẶT VÉ</NavLink>
+                    {/* <NavLink className="btn" to={`/moviedetail/${phim.maPhim}`}>ĐẶT VÉ</NavLink> */}
+                    <button className="btn" onClick={()=> datVe(phim.maPhim)}>ĐẶT VÉ</button>
                 </div>
                 <a className="card-play" onClick={() => openTrailer(phim.trailer)}><i class="fa fa-play"></i>
                 </a>
@@ -118,9 +140,11 @@ export default function Home(props) {
                                                     <div className="mt-4">
                                                         {listPhim.lstLichChieuTheoPhim?.slice(50).map((lichChieu, index) => {
                                                             return  <a aria-selected="true" className="px-2" >
-                                                                <NavLink to={`/showTime/${lichChieu.maLichChieu}`} className="btn-orange" >
+                                                                <button className="btn-orange" onClick={()=>datVeHeThongRap(lichChieu.maLichChieu)}>{moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}</button>
+                                                                {/* <NavLink to={`/showTime/${lichChieu.maLichChieu}`} className="btn-orange" >
                                                                 {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
-                                                                </NavLink>
+                                                                </NavLink> */}
+
                                                                                     
                                                             </a>
                                                             

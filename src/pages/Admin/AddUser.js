@@ -18,8 +18,8 @@ export default function AddUser() {
 
         hoTen: yup.string().required("*Vui lòng nhập họ tên")
     })
-    const _handleSubmit = (values) => {
-        console.log(values)
+    const handleThemNguoiDung = (values) => {
+        // console.log(values)
 
        adminService.AddUser(values).then(res => {
             alert('Đăng ký thành công')
@@ -48,7 +48,7 @@ export default function AddUser() {
 
                     }}
                     validationSchema={RegisSchema}
-                    onSubmit={_handleSubmit}
+                    onSubmit={handleThemNguoiDung}
                     render={(formikProps) => (
                         <Form>
                             <div className="form-group">
@@ -176,14 +176,9 @@ export default function AddUser() {
                                 <button className="btn btn-success" type="submit">Thêm</button>
                                 
                             </div>
-
-
-
-
                         </Form>
                     )}
                 >
-
                 </Formik>
             </div>
         </div>

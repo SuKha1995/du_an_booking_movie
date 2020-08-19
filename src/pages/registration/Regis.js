@@ -1,9 +1,9 @@
-import React from 'react'
-import { Redirect, useHistory, NavLink } from 'react-router-dom'
-import { Formik, Field, Form, ErrorMessage } from 'formik'
-import * as yup from 'yup'
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import * as yup from 'yup';
 import { UserService } from '../../service/userService';
-import './Regis.scss'
+import './Regis.scss';
 
 export default function Regis() {
     const history = useHistory();
@@ -17,7 +17,7 @@ export default function Regis() {
 
         hoTen: yup.string().required("*Vui lòng nhập họ tên")
     })
-    const _handleSubmit = (values) => {
+    const handleDangKi = (values) => {
         console.log(values)
 
         UserService.Registration(values).then(res => {
@@ -46,12 +46,11 @@ export default function Regis() {
                         email: "",
                         soDt: "",
                         maNhom: "GP01",
-
                         hoTen: "",
 
                     }}
                     validationSchema={RegisSchema}
-                    onSubmit={_handleSubmit}
+                    onSubmit={handleDangKi}
                     render={(formikProps) => (
                         <Form>
                             <div className="form-group">
@@ -155,17 +154,12 @@ export default function Regis() {
                             <div className="text-center">
                                 <button className="btn btn-success  mr-3 small" type="submit">Đăng ký</button>
                                 <button className="btn btn-success" type="submit">
-                                    <NavLink to='/login' style={{color: "white"}}>Đăng nhập</NavLink>
+                                    <NavLink to='/login' style={{ color: "white" }}>Đăng nhập</NavLink>
                                 </button>
                             </div>
-
-
-
-
                         </Form>
                     )}
                 >
-
                 </Formik>
             </div>
         </div>

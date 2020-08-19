@@ -1,12 +1,10 @@
+import { ErrorMessage, Field, Form, Formik } from 'formik'
 import React, { useEffect } from 'react'
-import {  Formik, Field, Form, ErrorMessage } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
+import { NavLink, useHistory } from 'react-router-dom'
 import * as yup from 'yup'
-import { useDispatch, useSelector, } from 'react-redux'
 import { LoginAction } from '../../redux/actions/userAction'
-import { NavLink, useHistory, } from 'react-router-dom'
 import './Login.scss'
-
-
 
 function Login() {
     const dispatch = useDispatch()
@@ -16,7 +14,7 @@ function Login() {
         taiKhoan: yup.string().required("*Vui lòng nhập tên tài khoản"),
         matKhau: yup.string().required("*Vui lòng nhập mật khẩu")
     })
-    const _handleSubmit = (values) => {
+    const handleDangNhap = (values) => {
 
         dispatch(LoginAction(values))
 
@@ -38,7 +36,7 @@ function Login() {
                         matKhau: ""
                     }}
                     validationSchema={LoginSchema}
-                    onSubmit={_handleSubmit} // gọi hàm submit
+                    onSubmit={handleDangNhap} // gọi hàm submit
                     render={(formikProps) => (
                         <Form >
                             <div className="form-group">

@@ -1,30 +1,26 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux'
-import '../../templates/HomeTemplate/HomeTemplate.scss'
-
-
+import '../../templates/HomeTemplate/HomeTemplate.scss';
 
 export default function Header(props) {
-    
+
     let user = useSelector(state => state.user.thongTinDangNhap)
     let maNguoiDung = user.maLoaiNguoiDung;
-    console.log('object',maNguoiDung)
+    console.log('object', maNguoiDung)
     let loaiNguoiDung = ''
-    console.log('user',user)
-    const checkUser = (loaiNguoiDung) =>{
-        
-        if(maNguoiDung == 'KhachHang'){
+    console.log('user', user)
+    const checkUser = (loaiNguoiDung) => {
+
+        if (maNguoiDung == 'KhachHang') {
             loaiNguoiDung = "/user"
         }
-        else{
+        else {
             loaiNguoiDung = "/admin"
         }
         return loaiNguoiDung
     }
-    
-    
-  
+
     return (
         <div className="header sticky-top">
             <nav className="navbar navbar-expand-lg  py-0">
@@ -43,41 +39,26 @@ export default function Header(props) {
                             <div className="nav__link "></div>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/login">Tin Tức</NavLink>
+                            <NavLink className="nav-link" to="/">Tin Tức</NavLink>
                             <div className="nav__link"></div>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link " to="/login">Ứng Dụng</NavLink>
-                            <div className="nav__link"></div>
-                        </li>
-
- 
                     </ul>
-
-
-
                 </div>
                 <span className="mr-2 "><i class="fa fa-user-circle icon-login"></i></span>
                 <div>
                     <div>
-                        
-                        {user ? <NavLink to={checkUser(loaiNguoiDung)} className="login mr-3">Hi, {user.taiKhoan}</NavLink> :
-                         
-                        <div className="mr-5" >
-                            <NavLink className="login mr-3" to="/regis">Đăng Ký</NavLink>
 
-                            <NavLink className="login" to="/login">Đăng Nhập</NavLink>
-                        </div>}
+                        {user ? <NavLink to={checkUser(loaiNguoiDung)} className="login mr-3">Hi, {user.taiKhoan}</NavLink> :
+
+                            <div className="mr-5" >
+                                <NavLink className="login mr-3" to="/regis">Đăng Ký</NavLink>
+
+                                <NavLink className="login" to="/login">Đăng Nhập</NavLink>
+                            </div>}
                     </div>
 
-
-
-
                 </div>
-
-
             </nav>
-
         </div>
     )
 }

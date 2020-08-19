@@ -1,9 +1,9 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+
 import { NavLink } from 'react-router-dom';
 import { qlPhimService } from '../../service/quanLiPhimService';
 import './MovieDetail.scss';
-import MovieDetailModal from './MovieDetailModal';
 
 export default function MovieDetail(props) {
 
@@ -17,9 +17,9 @@ export default function MovieDetail(props) {
         }).catch((error) => {
             console.log(error.response.data)
         })
-    }, []) 
+    }, [])
     console.log('thongTinPhim', thongTinPhim)
-    const openTrailer = ()=>{
+    const openTrailer = () => {
         window.open(thongTinPhim.trailer, "trailer")
     }
 
@@ -27,7 +27,7 @@ export default function MovieDetail(props) {
         <div className="container">
             <div className="row moviDetail">
                 <div className="col-4 movieDetail__Img">
-                    <img src={thongTinPhim.hinhAnh}  />
+                    <img src={thongTinPhim.hinhAnh} />
                 </div>
 
                 <div className="col-8 movieDetail__content mt-3">
@@ -44,55 +44,55 @@ export default function MovieDetail(props) {
                             <tr>
                                 <th className="movieDetail__content--text">Điểm đánh giá : </th>
                                 <th className="movieDetail__content--text">{thongTinPhim.danhGia}</th>
-                               
+
                             </tr>
                         </thead>
-                    <button onClick={openTrailer} className="btn-orange mt-3 mr-3">
-                        Trailer
+                        <button onClick={openTrailer} className="btn-orange mt-3 mr-3">
+                            Trailer
                     </button>
-                    <a className="btn-datVe" href="#datVe">
-                        Đặt vé
+                        <a className="btn-datVe" href="#datVe">
+                            Đặt vé
                     </a>
                     </table>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div className="container">
                 <h2 id="datVe">Chọn Rạp</h2>
                 <div className="row">
                     <div className="nav flex-column nav-pills MovieDetail" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        {thongTinPhim.heThongRapChieu?.map((heThongRap,index)=>{
-                            return<a key={index} className="nav-link MovieDetail__cumRap " id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
-                                    <img src={heThongRap.logo} style={{width:'35px',height:'35px'}}/>
-                                    <span className="ml-3">{heThongRap.tenHeThongRap}</span>
-                                    </a>
-                            
+                        {thongTinPhim.heThongRapChieu?.map((heThongRap, index) => {
+                            return <a key={index} className="nav-link MovieDetail__cumRap " id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                <img src={heThongRap.logo} style={{ width: '35px', height: '35px' }} />
+                                <span className="ml-3">{heThongRap.tenHeThongRap}</span>
+                            </a>
+
                         })}
-                        
+
                     </div>
-                    <div className="tab-content col-7"  id="v-pills-tabContent">
-                        
-                             {thongTinPhim.heThongRapChieu?.map((heThongRap,index)=>{
-                                 return <div key={index}
-                                 className="tab-pane fade show" id={heThongRap.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                    {/* {heThongRap.tenHeThongRap} */}
-                                    {heThongRap.cumRapChieu?.map((cumRap,index)=>{
-                                        return <div key={index} >
-                                           <p className="tenRap">{cumRap.tenCumRap}</p> 
-                                           {cumRap.lichChieuPhim?.slice(0,12).map((lichChieu,index)=>{
-                                               return <button className="btn-orange mr-1 mb-1">
-                                                   <NavLink to={`/showtime/${lichChieu.maLichChieu}`} key={index} className="movieDetail__content--date">
-                                                  
-                                                  {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
-                                              </NavLink>
-                                               </button> 
-                                              
-                                           })}
-                                        </div>
-                                    })}
-                                 </div>
-                             })}
-                         
+                    <div className="tab-content col-7" id="v-pills-tabContent">
+
+                        {thongTinPhim.heThongRapChieu?.map((heThongRap, index) => {
+                            return <div key={index}
+                                className="tab-pane fade show" id={heThongRap.maHeThongRap} role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                {/* {heThongRap.tenHeThongRap} */}
+                                {heThongRap.cumRapChieu?.map((cumRap, index) => {
+                                    return <div key={index} >
+                                        <p className="tenRap">{cumRap.tenCumRap}</p>
+                                        {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
+                                            return <button className="btn-orange mr-1 mb-1">
+                                                <NavLink to={`/showtime/${lichChieu.maLichChieu}`} key={index} className="movieDetail__content--date">
+
+                                                    {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
+                                                </NavLink>
+                                            </button>
+
+                                        })}
+                                    </div>
+                                })}
+                            </div>
+                        })}
+
                         {/* <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Home</div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Profile</div>
                         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Messages</div>

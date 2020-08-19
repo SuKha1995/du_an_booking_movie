@@ -1,0 +1,49 @@
+@import "../../assets/scss/Helper/mixin";
+@import "../../assets/scss/Helper/variables";
+.user__content {
+  width: 100%;
+  // height: 600px;
+  background-image: url(../../img/userImg/cat.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-bottom: 50px;
+
+  .user-title {
+    @include styleText($fs-2, $fw-normal, $color-white-1);
+
+    background-color: transparent !important;
+  }
+  .user-title.active {
+    color: $color-white-0 !important;
+  }
+  .nav-tabs {
+    border: none;
+  }
+  .info-title {
+    @include styleText($fs-0 + 2, $fw-bold-0, $color-white-0);
+    letter-spacing: 1px;
+    word-spacing: 2px;
+  }
+  .info-body {
+    @include styleText($fs-0 + 2, $fw-normal, $color-white-0);
+    letter-spacing: 1px;
+    word-spacing: 2px;
+  }
+
+  //lich su dat ve
+  .film__card {
+    background-color: transparent !important;
+    color: $color-white-0;
+    .film__Name {
+      @include styleText($fs-2, $fw-bold, $color-orange-1);
+    }
+    .film__content {
+      @include styleText($fs-2, $fw-normal, $color-white-0);
+    }
+  }
+  .film__date {
+    @include styleText($fs-2, $fw-normal, $color-white-0);
+    color: $color-white-0 !important;
+  }
+}
