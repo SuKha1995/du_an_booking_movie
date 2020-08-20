@@ -3,27 +3,27 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import * as yup from 'yup'
-import { UserService } from '../../service/userService'
-import { adminService } from '../../service/AdminService'
+import { adminService } from '../../../service/AdminService'
 
-export default function AdminUpdateUser() {
+export default function UpdateFilm() {
     const history = useHistory();
     const dispatch = useDispatch()
 
-    let thongTinNguoiDung = useSelector(state => state.admin.userUpdate)
+    let thongTinPhim = useSelector(state => state.admin.filmUpdate)
     // let thongTinNguoiDung = useSelector(state => state.user.thongTinDangNhap)
     
-    const RegisSchema = yup.object().shape({
-        taiKhoan: yup.string().required("*Vui lòng nhập tên tài khoản"),
-        matKhau: yup.string().required("*Vui lòng nhập tên tài khoản").min(8, "*Mật khẩu phải dài hởn 8 kí tự"),
-        email: yup.string().required("*Vui lòng nhập email").email("*Email không đúng"),
-        soDt: yup.string().required("*Vui lòng nhập số điện thoại").matches("^[0-9]+$", "Vui lòng nhập đúng số điện thoại"),
+    const FilmSchema = yup.object().shape({
+        maPhim: yup.string().required("*Vui lòng nhập mã phim"),
+        tenPhim: yup.string().required("*Vui lòng nhập tên phim"),
+        biDanh: yup.string().required("*Vui lòng nhập bí danh"),
+        hinhAnh: yup.string().required("*Vui lòng nhập link hình ảnh"),
+        moTa: yup.string().required("*Vui lòng nhập mô tả"),
         maNhom: yup.string().required("*Vui lòng chọn mã nhóm "),
-
-        hoTen: yup.string().required("*Vui lòng nhập họ tên")
+        ngayKhoiChieu: yup.string().required("*Vui lòng ngày khởi chiếu"),
+        danhGia: yup.string().required("*Vui lòng nhập điểm"),
     })
-    const handleUpdate = (values) => {
-        adminService.UpdateUser(values).then(res => {
+    const handleUpdateFilm = (values) => {
+        adminService.UpdateFilm(values).then(res => {
             
             history.push('/admin')
         }).catch(err => {
@@ -37,72 +37,88 @@ export default function AdminUpdateUser() {
                 <h1 className='text-center  display-4 form__title'>Sửa Thông Tin Tài Khoản</h1>
                 <Formik
                     initialValues={{
-                        taiKhoan: thongTinNguoiDung.taiKhoan,
-                        matKhau: thongTinNguoiDung.matKhau,
-                        email: thongTinNguoiDung.email,
-                        soDt: thongTinNguoiDung.soDt,
-                        maNhom: thongTinNguoiDung.maNhom,
-                        maLoaiNguoiDung: thongTinNguoiDung.maLoaiNguoiDung,
-                        hoTen: thongTinNguoiDung.hoTen,
+                        maPhim: thongTinPhim.maPhim,
+                        tenPhim: thongTinPhim.tenPhim,
+                        biDanh: thongTinPhim.biDanh,
+                        hinhAnh: thongTinPhim.hinhAnh,
+                        moTa: thongTinPhim.moTa,
+                        maNhom: thongTinPhim.maNhom,
+                        ngayKhoiChieu: thongTinPhim.ngayKhoiChieu,
+                        danhGia:thongTinPhim.danhGia
 
                     }}
-                    validationSchema={RegisSchema}
-                    onSubmit={handleUpdate}
+                    validationSchema={FilmSchema}
+                    onSubmit={handleUpdateFilm}
                     render={(formikProps) => (
                         <Form>
                             <div className="form-group">
-                                <label >Tài khoản</label>
+                                <label >Mã phim</label>
                                 <Field className="form-control"
-                                    name="taiKhoan"
+                                    name="maPhim"
                                     type="text"
                                     // values= {thongTinNguoiDung.taiKhoan}
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="taiKhoan">
+                                <ErrorMessage name="maPhim">
                                     {
                                         (err) => <div >{err}</div>
                                     }
                                 </ErrorMessage>
                             </div>
                             <div className="form-group">
-                                <label >Mật khẩu</label>
+                                <label >Tên phim</label>
                                 <Field className="form-control"
-                                    name="matKhau"
-                                    type="password"
+                                    name="tenPhim"
+                                    type="text"
                                     // values={thongTinNguoiDung.matKhau}
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="matKhau">
+                                <ErrorMessage name="tenPhim">
                                     {
                                         (err) => <div >{err}</div>
                                     }
                                 </ErrorMessage>
                             </div>
                             <div className="form-group">
-                                <label >Email</label>
+                                <label >Bí danh</label>
                                 <Field className="form-control"
-                                    name="email"
-                                    type="email"
+                                    name="biDanh"
+                                    type="text"
+                                    // values={thongTinNguoiDung.matKhau}
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="email">
+                                <ErrorMessage name="biDanh">
+                                    {
+                                        (err) => <div >{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
+                                <label >Hinh Ảnh</label>
+                                <Field className="form-control"
+                                    name="hinhAnh"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                />
+                                <ErrorMessage name="hinhAnh">
                                     {
                                         (err) => <div>{err}</div>
                                     }
                                 </ErrorMessage>
                             </div>
                             <div className="form-group">
-                                <label >Số điện thoại</label>
+                                <label >Mô tả</label>
                                 <Field className="form-control"
-                                    name="soDt"
+                                    name="moTa"
                                     type="text"
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="soDt">
+                                <ErrorMessage name="moTa">
                                     {
                                         (err) => <div>{err}</div>
                                     }
@@ -137,46 +153,40 @@ export default function AdminUpdateUser() {
                                 </ErrorMessage>
                             </div>
                             <div className="form-group">
-                                <label >Mã loai người dùng</label>
+                                <label >Ngày khởi chiếu</label>
                                 <Field className="form-control"
-                                    component="select"
-                                    name="maLoaiNguoiDung"
-                                    type="text"
-                                    onChange={formikProps.handleChange}
-
-                                >
-                                    <option>KhachHang</option>
-                                    <option>QuanTri</option>
-                                    
-                                </Field>
-                                <ErrorMessage name="maLoaiNguoiDung">
-                                    {
-                                        (err) => <div >{err}</div>
-                                    }
-                                </ErrorMessage>
-                            </div>
-
-                            <div className="form-group">
-                                <label >Họ tên</label>
-                                <Field className="form-control"
-                                    name="hoTen"
+                                    name="ngayKhoiChieu"
                                     type="text"
                                     onChange={formikProps.handleChange}
 
                                 />
-                                <ErrorMessage name="hoTen">
+                                <ErrorMessage name="ngayKhoiChieu">
                                     {
                                         (err) => <div>{err}</div>
                                     }
                                 </ErrorMessage>
                             </div>
+                            <div className="form-group">
+                                <label >Đánh giá</label>
+                                <Field className="form-control"
+                                    name="danhGia"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                />
+                                <ErrorMessage name="danhGia">
+                                    {
+                                        (err) => <div>{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            
+
+                            
                             <div className="text-center">
                                 <button className="btn btn-success" type="submit">Xác Nhận</button>
 
                             </div>
-
-
-
 
                         </Form>
                     )}

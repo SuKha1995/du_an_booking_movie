@@ -11,3 +11,16 @@ export const updateUser = (user) =>{
         payload: user
     }
 }
+export const getListFilm = (listFilm) =>{
+    return {
+        type: 'LAY_DANH_SACH_PHIM',
+        payload: listFilm
+    }
+}
+
+export const updateFilm = (phim) =>{
+    return {
+        type: 'CAP_NHAT_THONG_TIN_PHIM',
+        payload: phim
+    }
+}

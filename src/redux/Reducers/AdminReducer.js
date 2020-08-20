@@ -1,6 +1,8 @@
 let initialState = {
     listUser: [],
-    userUpdate: ''
+    userUpdate: '',
+    listFilm: [],
+    filmUpdate: ''
 }
 const AdminReducer = (state = initialState , action) =>{
     switch(action.type){
@@ -10,8 +12,15 @@ const AdminReducer = (state = initialState , action) =>{
         break;
         case 'CAP_NHAT_THONG_TIN_NGUOI_DUNG':
             state.userUpdate = action.payload;
+            return {...state};
+        break;
+        case 'LAY_DANH_SACH_PHIM' :
+            state.listFilm = action.payload;
+            return {...state};
+        case 'CAP_NHAT_THONG_TIN_PHIM':
+            state.filmUpdate = action.payload;
             return {...state}
-            
+            break;
         default:
             return state;
     }

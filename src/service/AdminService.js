@@ -45,6 +45,35 @@ import React, { Component } from 'react'
             }
         })
     }
+    AddFilm = (values) =>{
+        return axios({
+            url: `${domain}/QuanLyPhim/ThemPhimUploadHinh`,
+            method: 'POST',
+            data: values,
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+    }
+    UpdateFilm = (phim) =>{
+        return axios({
+            url: `${domain}/QuanLyPhim/CapNhatPhim`,
+            method:'POST',
+            data:phim,
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+    }
+    DeleteFilm = (maPhim) =>{
+        return axios({
+            url: `${domain}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+            method: 'DELETE',
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+    }
     
      
 }

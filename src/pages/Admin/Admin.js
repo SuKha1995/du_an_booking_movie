@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Film from './Film'
+import Film from './Film/Film'
 import User from './User'
 
 export default class Admin extends Component {

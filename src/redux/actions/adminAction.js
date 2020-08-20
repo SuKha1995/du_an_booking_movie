@@ -1,6 +1,7 @@
 import { adminService } from "../../service/AdminService";
-import { getListUser, updateUser } from "../type/adminType";
+import { getListUser, updateUser, getListFilm, updateFilm } from "../type/adminType";
 import { UserService } from "../../service/userService";
+import { qlPhimService } from "../../service/quanLiPhimService";
 
 
 
@@ -18,5 +19,28 @@ export const getListUserAction = () =>{
 export const adminUpdateAction = (user) =>{
     return dispatch =>{
        dispatch(updateUser(user))
+    }
+}
+export const getListFilmAction = () =>{
+    return dispatch =>{
+        qlPhimService.layDanhSachPhim().then(res =>{
+            dispatch(getListFilm(res.data))
+        })
+    }
+};
+
+export const adminUpdateFilmAction = (phim) =>{
+    return dispatch =>{
+        dispatch(updateFilm(phim))
+    }
+};
+
+export const addFilmAction = (form_data) =>{
+    return dispatch =>{
+        adminService.AddFilm(form_data).then(res =>{
+          alert('Thêm thành công')
+        }).catch(err =>{
+            console.log(err)
+        })
     }
 }

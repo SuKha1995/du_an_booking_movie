@@ -18,6 +18,8 @@ import { userAction } from './redux/type/userType';
 import { AdminTemplate } from './templates/AdminTemplate/AdminTemplate';
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
+import UpdateFilm from './pages/Admin/Film/UpdateFilm';
+import AddFilm from './pages/Admin/Film/AddFilm';
 
  class App extends Component {
   render() {
@@ -28,6 +30,8 @@ import { UserTemplate } from './templates/UserTemplate/UserTemplate';
           <AdminTemplate exact path="/admin" component={Admin}/>
           <AdminTemplate exact path="/addUser" component={AddUser}/>
           <AdminTemplate exact path="/updateUser" component={AdminUpdateUser}/>
+          <AdminTemplate exact path="/addFilm" component={AddFilm} />
+          <AdminTemplate exact path="/updateFilm" component={UpdateFilm}  />
           <HomeTemplate exact path="/moviedetail/:maPhim" component={MovieDetail}/>
           <HomeTemplate exact path="/showtime/:maLichChieu" component={ShowTime}/>
           <HomeTemplate exact path="/home" component={Home}/>
