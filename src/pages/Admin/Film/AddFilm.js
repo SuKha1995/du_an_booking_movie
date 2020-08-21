@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import { addFilmAction } from '../../../redux/actions/adminAction';
+import { adminService } from '../../../service/AdminService';
+import {useHistory} from 'react-router-dom'
 
 export default function AddFilm() {
-
+    const history = useHistory()
     let [thongTinPhim,setThongTinPhim] = useState({hinhAnh: {},
         maPhim: '',
         tenPhim: '',
@@ -11,6 +13,7 @@ export default function AddFilm() {
         trailer:'',
         moTa:'',
         maNhom: 'GP05',
+        ngayKhoiChieu: '',
         danhGia: ''
     });
         
@@ -18,12 +21,12 @@ export default function AddFilm() {
     const handleChange = (e) => {
         let target = e.target;
         if (target.name === 'hinhAnh') {
-            setThongTinPhim({ hinhAnh: e.target.files[0] }, 
+            setThongTinPhim({...thongTinPhim, hinhAnh: e.target.files[0] }, 
              
             console.log(thongTinPhim)
             );
         } else {
-           setThongTinPhim({ [e.target.name]: e.target.value },
+           setThongTinPhim({...thongTinPhim, [e.target.name]: e.target.value },
             
             console.log(thongTinPhim)
             );
@@ -37,7 +40,11 @@ export default function AddFilm() {
             form_data.append(key, thongTinPhim[key]);
         };
         console.log('formData',form_data)
-        dispatch(addFilmAction(form_data))
+        adminService.AddFilm(form_data).then(res=>{
+            alert('Thêm phim thành công')
+            history.push('/admin')
+        })
+        
     }
     return (
         <div className="w-50 mx-auto">
@@ -73,6 +80,10 @@ export default function AddFilm() {
                     <div className="form-group">
                         <label>Mã nhóm</label>
                         <input name="maNhom" value="GP05" className="form-control" onChange={handleChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Ngày khởi chiếu</label>
+                        <input name="ngayKhoiChieu"  className="form-control" onChange={handleChange}/>
                     </div>
                     <div className="form-group">
                         <label>Đánh giá</label>

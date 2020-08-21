@@ -2,7 +2,11 @@ import { adminService } from "../../service/AdminService";
 import { getListUser, updateUser, getListFilm, updateFilm } from "../type/adminType";
 import { UserService } from "../../service/userService";
 import { qlPhimService } from "../../service/quanLiPhimService";
-
+import {
+    createBrowserHistory,
+    createHashHistory,
+    createMemoryHistory
+  } from 'history'
 
 
 export const getListUserAction = () =>{
@@ -35,12 +39,13 @@ export const adminUpdateFilmAction = (phim) =>{
     }
 };
 
-export const addFilmAction = (form_data) =>{
-    return dispatch =>{
-        adminService.AddFilm(form_data).then(res =>{
-          alert('Thêm thành công')
-        }).catch(err =>{
-            console.log(err)
-        })
-    }
-}
+// export const addFilmAction = (form_data) =>{
+//     return dispatch =>{
+//         adminService.AddFilm(form_data).then(res =>{
+//           alert('Thêm thành công');
+//             history.push({ pathname: '/admin' })
+//         }).catch(err =>{
+//             console.log(err)
+//         })
+//     }
+// }

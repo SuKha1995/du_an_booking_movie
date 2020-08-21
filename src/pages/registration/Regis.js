@@ -25,7 +25,6 @@ export default function Regis() {
             setTimeout(() => {
                 history.push('/login')
             }, 1000)
-            // history.push('/login')
 
 
         }).catch(err => {

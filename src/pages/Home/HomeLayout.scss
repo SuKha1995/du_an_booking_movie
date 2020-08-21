@@ -2,30 +2,9 @@
 @import "../../assets/scss/Helper/variables";
 .carousel {
   margin-bottom: 40px;
-  .carousel__item {
-    position: relative;
-    i {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 5;
-      color: white;
-      border: solid 2px white;
-      border-radius: 50%;
-      width: 90px;
-      height: 90px;
-      font-size: 20px;
-      padding: 35px 0 0 4px;
-      &:hover {
-        border: solid 2px $color-orange-1;
-        color: $color-orange-1; 
-        transition: 0.5s;
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-    }
-  }
+  
 }
+
 .movie__card {
   background-image: url(../../img/homeImg/hinhnen2.jpg);
   background-size: cover;

@@ -85,7 +85,9 @@ export default function Home(props) {
         <div>
             <Carousel />
             <div className="container">
+            <h2 className="text-center">Phim Đang Chiếu</h2>
                 <div className="row movie__card">
+                    
                     {renderPhim()}
                 </div>
                 <div className="my-3" id="heThongRap">

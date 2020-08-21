@@ -38,7 +38,7 @@ export default function Film() {
 
          }).catch(err =>{
              console.log(err)
-             alert('Phim đã sắp lịch chiếu không thể xóa')
+            
          })
          
      }

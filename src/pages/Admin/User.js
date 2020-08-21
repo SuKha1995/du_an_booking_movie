@@ -53,6 +53,12 @@ export default function User() {
                     <td>{userFind.hoTen}</td>
                     <td>{userFind.email}</td>
                     <td>{userFind.soDt}</td>
+                    <td className="text-center">
+                     <button className="btn btn-success mr-2" onClick={()=> updateUser(userFind)}>
+                         Sửa
+                     </button>
+                     <button className="btn btn-danger" onClick={()=> DeleteUser(userFind.taiKhoan)}>Xóa</button>
+                 </td>
                 </tr>
             
         })

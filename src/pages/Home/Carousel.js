@@ -28,7 +28,7 @@ export default function Carousel() {
                         </a>
                 </div>
                 <div className="carousel__item">
-                    <a><img src="../img/home/carousel4.jpg" width="100%" height="600px" />
+                    <a><img src="https://s3img.vcdn.vn/123phim/2020/08/ca-sau-15972253022491.png" src="https://s3img.vcdn.vn/123phim/2020/08/ca-sau-15972253022491.png" width="100%" height="600px" />
                         </a>
                 </div>
             </Slider>

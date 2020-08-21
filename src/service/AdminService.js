@@ -57,7 +57,7 @@ import React, { Component } from 'react'
     }
     UpdateFilm = (phim) =>{
         return axios({
-            url: `${domain}/QuanLyPhim/CapNhatPhim`,
+            url: `${domain}/QuanLyPhim/CapNhatPhimUpload`,
             method:'POST',
             data:phim,
             headers: {
