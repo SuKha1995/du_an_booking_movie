@@ -41,9 +41,40 @@
     .film__content {
       @include styleText($fs-2, $fw-normal, $color-white-0);
     }
+    .card-img{
+      width: 150px;
+      height: 150px;
+    }
   }
   .film__date {
     @include styleText($fs-2, $fw-normal, $color-white-0);
     color: $color-white-0 !important;
   }
+
 }
+@include responsive_576{
+  .user__content{
+    .film__card{
+      .card-img{
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  
+  
+}
+@include responsive_768{
+  .user__content{
+    .film__card{
+      .card-img{
+        width: 105px;
+        height: 105px;
+      }
+    }
+  }
+  
+  
+}
+
+

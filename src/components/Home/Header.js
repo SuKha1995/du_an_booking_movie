@@ -23,13 +23,14 @@ export default function Header(props) {
 
     return (
         <div className="header sticky-top">
-            <nav className="navbar navbar-expand-lg  py-0">
-                <NavLink class="navbar-brand " to="/home"><img src="../../img/logo/logo.svg" className="nav-logo " /></NavLink>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            
+            <nav className="navbar navbar-expand-lg  navbar-dark">
+                <NavLink className="navbar-brand " to="/home"><img src="../../img/logo/logo.svg" className="nav-logo " /></NavLink>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span className="navbar-toggler-icon" />
                 </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav    nav-items">
+                <div className="collapse navbar-collapse  " id="collapsibleNavbar">
+                <ul className="navbar-nav  mx-auto    nav-items">
                         <li className="nav-item active">
                             <NavLink className="nav-link  " to="/home">Trang Chủ </NavLink>
                             <div className="nav__link"></div>
@@ -39,7 +40,7 @@ export default function Header(props) {
                             <div className="nav__link "></div>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/">Tin Tức</NavLink>
+                            <a className="nav-link" href="#news">Tin Tức</a>
                             <div className="nav__link"></div>
                         </li>
                     </ul>
@@ -59,6 +60,7 @@ export default function Header(props) {
 
                 </div>
             </nav>
+
         </div>
     )
 }

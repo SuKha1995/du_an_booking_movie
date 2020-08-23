@@ -58,7 +58,7 @@ export default function Regis() {
                                     name="taiKhoan"
                                     type="text"
                                     onChange={formikProps.handleChange}
-
+                                    
                                 />
                                 <ErrorMessage name="taiKhoan">
                                     {

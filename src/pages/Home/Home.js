@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { qlPhimService } from '../../service/quanLiPhimService';
 import Carousel from './Carousel';
 import './HomeLayout.scss';
+import News from './News';
 
 export default function Home(props) {
 
@@ -60,9 +61,9 @@ export default function Home(props) {
 
     let renderPhim = () => {
         return danhSachPhim.slice(1).map((phim, index) => {
-            return <div className="col-3 pt-1 movie__card-content" key="{index}">
+            return <div className="col-lg-3 col-md-4 col-sm-6 col-6 pt-1 movie__card-content" key="{index}">
                 <div className="card-img">
-                    <img src={phim.hinhAnh} style={{ width: '100%', height: 340 }} alt />
+                    <img src={phim.hinhAnh}  alt />
 
                     <div className="card-bg"></div>
 
@@ -83,7 +84,10 @@ export default function Home(props) {
 
     return (
         <div>
+            {/* carousel */}
             <Carousel />
+
+            {/* card phim */}
             <div className="container">
             <h2 className="text-center">Phim Đang Chiếu</h2>
                 <div className="row movie__card">
@@ -92,17 +96,22 @@ export default function Home(props) {
                 </div>
                 <div className="my-3" id="heThongRap">
 
-                    <div className="container">
-                        <h2 className="text-center pb-3">Hệ Thống Rạp</h2>
+                    <div className="container heThongRap">
+                        <div className="heThongRap__title">
+                            <h2 className="text-center pb-3">Hệ Thống Rạp</h2>
+                            <span className="text-center">Xem Lịch Chiếu Phim Theo Rạp</span>
+                            <div className="news__title-line mt-4 mb-5" />
+                        </div>
+                        
                         <div className="row" >
-                            <div className="nav flex-column nav-pills col-2 heThongRap" >
+                            <div className="nav flex-column nav-pills col-3 col-sm-3 heThongRap__body" >
                                 {thongTinRap.map((heThongRap, index) => {
                                     return <a key={index} className=" heThongRap__content nav-link"  data-toggle="pill" href={`#${heThongRap.maHeThongRap}`}  >
                                         <p className="">{heThongRap.maHeThongRap}</p>
                                     </a>
                                 })}
                             </div>
-                            <div className="col-4 tab-content px-0"  >
+                            <div className="col-5 col-sm-6 tab-content px-0"  >
                                 {thongTinRap?.map((heThongRap, index) => {
                                     return <div
                                         className="tab-pane show nav nav-pills cumRap" id={heThongRap.maHeThongRap} style={{ height: 318, overflowY: 'scroll', padding: 5, border: '1px solid #ccc' }} >
@@ -122,7 +131,7 @@ export default function Home(props) {
                                     </div>
                                 })}
                             </div>
-                            <div className="col-6 tab-content px-0" >
+                            <div className="col-4 col-sm-3 tab-content px-0" >
                                 {thongTinRap?.map((heThongRap, index) => {
                                     
                                     return heThongRap.lstCumRap?.map((cumRap, index) => {
@@ -131,8 +140,8 @@ export default function Home(props) {
                                             {cumRap.danhSachPhim?.map((listPhim, index) => {
                                                 return <div >
                                                     <div key={index} aria-selected="true" className="row px-2">
-                                                        <img src={listPhim.hinhAnh} style={{ width: 50, height: 75 }} className="col-2" />
-                                                        <div className="col-10 tenPhim">
+                                                        <img src={listPhim.hinhAnh}  className="col-4" />
+                                                        <div className="col-8 tenPhim">
                                                             {listPhim.tenPhim}
                                                             
                                                         </div>
@@ -158,18 +167,16 @@ export default function Home(props) {
                                             })}
                                         </div>
                                     })
-
-
                                 })}
                             </div>
                         </div>
                     </div>
-
-
-
                 </div >
             </div>
+
             {/* tin tuc*/}
+            <News/>
+
         </div>
 
     )

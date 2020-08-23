@@ -54,3 +54,8 @@
         @content;
     }
 }
+@mixin  responsive_320_991 () {
+    @media #{$res-320-991} {
+        @content;
+    }
+}

@@ -60,7 +60,7 @@ export default function MovieDetail(props) {
             <div className="container">
                 <h2 id="datVe">Chọn Rạp</h2>
                 <div className="row">
-                    <div className="nav flex-column nav-pills MovieDetail" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div className="nav flex-column nav-pills MovieDetail col-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         {thongTinPhim.heThongRapChieu?.map((heThongRap, index) => {
                             return <a key={index} className="nav-link MovieDetail__cumRap " id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
                                 <img src={heThongRap.logo} style={{ width: '35px', height: '35px' }} />
@@ -70,7 +70,7 @@ export default function MovieDetail(props) {
                         })}
 
                     </div>
-                    <div className="tab-content col-7" id="v-pills-tabContent">
+                    <div className="tab-content col-8" id="v-pills-tabContent">
 
                         {thongTinPhim.heThongRapChieu?.map((heThongRap, index) => {
                             return <div key={index}

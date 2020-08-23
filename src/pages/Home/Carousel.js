@@ -15,16 +15,16 @@ export default function Carousel() {
         <Slider {...settings} className="text-center carousel">
                 <div className="carousel__item">
                     <a>
-                        <img src="../img/home/carousel1.png" width="100%" height="600px" />
+                        <img src="../img/home/carousel1.png"  />
                        
                     </a>
                 </div>
                 <div className="carousel__item">
-                    <a><img src="../img/home/carousel2.jpg" width="100%" height="600px" />
+                    <a><img src="../img/home/carousel2.jpg" />
                         </a>
                 </div>
                 <div className="carousel__item">
-                    <a><img src="../img/home/carousel3.jpg" width="100%" height="600px" />
+                    <a><img src="../img/home/carousel3.jpg"  />
                         </a>
                 </div>
                 <div className="carousel__item">

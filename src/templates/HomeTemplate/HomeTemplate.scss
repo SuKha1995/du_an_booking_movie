@@ -10,10 +10,10 @@
     margin-left: 30px;
   }
   .nav-items {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
     .nav-item {
         margin-right: 30px;
      
@@ -151,5 +151,14 @@
         
     }
 }
+@include responsive_320_991 {
+  .navbar-brand{
+    display: none;
+  }
+  .icon-login{
+    display: none;
+  }
+}
+
 
 

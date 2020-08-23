@@ -16,6 +16,9 @@ code {
     monospace;
     @include styleText($fs-1, $fw-normal,$color-blue);
 }
+h2{
+  @include styleText($fs-5 + 12,$fw-bold-0, $color-orange-1 !important)
+}
 .btn-orange{
   color: $color-gray-6;
   font-weight: $fw-bold;

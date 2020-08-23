@@ -41,15 +41,15 @@ export default class Footer extends Component {
                             <div class="col-md-12 col-lg-4 footer__top--contact">
                                 <h4>Liên Hệ</h4>
                                 <p>
-                                    <i class="fa fa-map-signs"></i> <span>8088 USA, Honey block,New York City.</span>
+                                    <i class="fa fa-map-signs"></i> <span>11/6 Đs 1 - P.Bình Thuận - Q7.</span>
                                     </p>
                                 <p>
                                     <i class="fa fa-envelope"></i>
-                                    <span>info@example.com</span>
+                                    <span>phamkha13e@gmail.com</span>
                                 </p>
                                 <p>
                                     <i class="fa fa-phone"></i>
-                                    <span>+09187 8088 9436</span>
+                                    <span>0966280219</span>
                                 </p>
                             </div>
                         </div>

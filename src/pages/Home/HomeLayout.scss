@@ -2,6 +2,53 @@
 @import "../../assets/scss/Helper/variables";
 .carousel {
   margin-bottom: 40px;
+  .carousel__item{
+    a{
+      img{
+        width: 100%;
+        height: 600px;
+      }
+    }
+  }
+  
+}
+@include responsive_768 {
+  .carousel{
+    .carousel__item{
+      a{
+        img{
+          width: 100%;
+          height: 450px;
+        }
+      }
+    }
+  }
+  
+}
+@include responsive_576 {
+  .carousel{
+    .carousel__item{
+      a{
+        img{
+          width: 100%;
+          height: 350px;
+        }
+      }
+    }
+  }
+  
+}
+@include responsive_0 {
+  .carousel{
+    .carousel__item{
+      a{
+        img{
+          width: 100%;
+          height: 250px;
+        }
+      }
+    }
+  }
   
 }
 
@@ -20,7 +67,10 @@
   margin-bottom: 20px;
   .card-img {
     position: relative;
-
+    img{
+      width: 100%;
+      height: 340px;
+    }
     .card-bg {
       position: absolute;
       z-index: 100;
@@ -135,80 +185,191 @@
     }
   }
 }
-//
-.heThongRap{
-  background: linear-gradient(
-    to right,
-    $color-orange-0,
-    $color-orange-1
-  );
-  padding:0;
-  .heThongRap__content {
-    color: $color-white-0;
-      font-size: $fs-2;
-      font-weight: $fw-bold-0;
-      padding: 0;
-      border: 1px solid $color-orange-0;
-      border-radius: 0;
-     
-      p{
-        padding: 10px 20px;
-        margin: 0;
-      }
-      &:hover{
-        background: $color-white-0;
-    color: $color-orange-1;
-     border-radius: 0;
-     border: 1px solid $color-orange-0;
-      }
-     
 
+@include responsive_992 {
+  .movie__card-content{
+    .card-img {
+      
+      img{
+        width: 100%;
+        height: 300px;
+      }
+  }}
+}
+@include responsive_768 {
+  .movie__card-content{
+    .card-img {
+      
+      img{
+        width: 100%;
+        height: 280px;
+      }
+  }}
+}
+@include responsive_576{
+  .movie__card-content{
+    .card-img {
+      text-align: center;
+     
+      img{
+        
+        height: 280px;
+      }
+      
   }
-  .nav-link.active{
-    background: $color-white-0;
-    color: $color-orange-1;
-     border-radius: 0;
-    
-  }
-  
+}
 }
 
-  .cumRap{
+//
+.heThongRap{
+  .heThongRap__title{
+    text-align: center;
+    h2{
+      margin: 0;
+      padding-top: 30px;
+      @include styleText($fs-5 + 12,$fw-bold-0, $color-orange-1)
+    }
+    span{
+      letter-spacing: 4px;
+        word-spacing: 4px;
+        @include styleText($fs-2,$fw-normal , $color-black-0)
+    }
+    .news__title-line{
+      width: 120px;
+      height: 2px;
+      margin: auto;
+      background-color: black;
+    }
+  }
+  .heThongRap__body{
     background: linear-gradient(
       to right,
       $color-orange-0,
       $color-orange-1
     );
-    border: 1px solid $color-orange-0;
-      border-radius: 0;
-     
-      .cumRap__body{
-        color: $color-white-0;
-        .tenCumRap{
-          font-size: $fs-2;
-          font-weight: $fw-bold-0;
-         
-         }
-         .diaChi{
-          color: $color-gray-4 !important;
+    padding:0;
+    .heThongRap__content {
+      color: $color-white-0;
+        font-size: $fs-2;
+        font-weight: $fw-bold-0;
+        padding: 0;
+        border: 1px solid $color-orange-0;
+        border-radius: 0;
+       
+        p{
+          padding: 10px 20px;
+          margin: 0;
         }
         &:hover{
           background: $color-white-0;
-          color: $color-orange-1;
-           border-radius: 0;
+      color: $color-orange-1;
+       border-radius: 0;
+       border: 1px solid $color-orange-0;
         }
-        
-      }
-    
+       
+  
+    }
     .nav-link.active{
       background: $color-white-0;
       color: $color-orange-1;
        border-radius: 0;
       
     }
+    
   }
-  .tenPhim{
-    @include styleText($fs-2,$fw-bold-0,$color-gray-4)
+  
+    .cumRap{
+      background: linear-gradient(
+        to right,
+        $color-orange-0,
+        $color-orange-1
+      );
+      border: 1px solid $color-orange-0;
+        border-radius: 0;
+       
+        .cumRap__body{
+          color: $color-white-0;
+          .tenCumRap{
+            font-size: $fs-2;
+            font-weight: $fw-bold-0;
+           
+           }
+           .diaChi{
+            color: $color-gray-4 !important;
+          }
+          &:hover{
+            background: $color-white-0;
+            color: $color-orange-1;
+             border-radius: 0;
+          }
+          
+        }
+      
+      .nav-link.active{
+        background: $color-white-0;
+        color: $color-orange-1;
+         border-radius: 0;
+        
+      }
+    }
+    .tenPhim{
+      @include styleText($fs-2,$fw-bold-0,$color-gray-4)
+    }
+}
+@include responsive_576{
+  .heThongRap{
+    .heThongRap__body{
+      .heThongRap__content{
+        p{
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}
+
+  //news
+
+  .news{
+    .news__title{
+      h1{
+        @include styleText($fs-5 + 12,$fw-bold-0, $color-orange-1)
+      }
+      .news__title-line{
+        width: 120px;
+        height: 2px;
+        margin: auto;
+        background-color: black;
+      }
+      span{
+        
+        letter-spacing: 4px;
+        word-spacing: 4px;
+        @include styleText($fs-2,$fw-normal , $color-black-0)
+      }
+    }
+
+    .news__body{
+      .news__body-text{
+        h5 a{
+          color: black;
+        text-decoration: none;
+        font-weight: 600;
+        }
+        h6{
+          color: $color-orange-1;
+        margin: 15px 0;
+        font-weight: 600;
+        font-size: 16px;
+        }
+        p{
+          font-size: 16px;
+        color: #999999;
+        letter-spacing: 1px;
+        line-height: 25px;
+        }
+      }
+    }
   }
   
 

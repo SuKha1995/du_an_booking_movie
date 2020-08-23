@@ -97,18 +97,20 @@ export default function User() {
                 onSubmit={_handleSubmit}
                 render={(formimProps) => (
                     <Form>
-                        <span>
-                            <label>Nhập Tên Tài Khoản Người Dùng Cần Tìm</label>
-                            <Field className="form-control"
-                            style={{width: 500}}
+                        <label>Nhập Tên Tài Khoản Người Dùng Cần Tìm</label>
+                        <div className="row">
+                            
+                            <Field className="form-control col-8"
+                            // style={{width: 500}}
                                 name="taiKhoan"
                                 type="text"
                                 onChange={formimProps.handleChange}
                             />
-                        </span>
-                        <span>
+                            <div className="col-2">
                              <button className="btn btn-success" type="submit">Tìm</button>
-                        </span>
+                            </div>
+                        </div>
+                        
                         
                         
                     </Form>
@@ -117,7 +119,7 @@ export default function User() {
                
            </Formik>
 
-            <div>
+            <div className="mt-5">
                 <table className="table table-dark">
                     <thead>
                         <tr>
@@ -136,7 +138,7 @@ export default function User() {
                 </table>
             </div>
 
-           <div style={{ height: 600, overflowY: 'scroll', padding: 0, border: '1px solid #ccc' }} className="mt-5 text-center">
+           <div style={{ height: 600, width: 1100, overflowY: 'scroll', padding: 0, border: '1px solid #ccc' }} className="mt-5 text-center">
                <table className="table table-hover table-bordered">
                     <thead>
                         <tr>

@@ -47,6 +47,39 @@
     
   }
 }
+@include responsive_768{
+  .moviDetail{
+    .movieDetail__Img{
+      img{
+        width: 200px;
+        height: 300px;
+      }
+    }
+  }
+}
+@include responsive_576{
+  .moviDetail{
+    .movieDetail__Img{
+      img{
+        width: 150px;
+        height: 270px;
+      }
+    }
+  }
+}
+@include responsive_0{
+  .moviDetail{
+    
+    .movieDetail__Img{
+      img{
+        width: 150px;
+        height: 250px;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+//
 
 .movieDetail__content--date{
     color: $color-gray-4;

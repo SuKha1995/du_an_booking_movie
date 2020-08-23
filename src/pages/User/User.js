@@ -42,7 +42,7 @@ export default function User(props) {
                 <div className="tab-content">
                     <div className="tab-pane container active" id="thongTinCaNhan">
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-sm-12 col-md-12 col-lg-6">
                                 <table className="table">
                                     <thead>
                                         <tr>
@@ -88,7 +88,7 @@ export default function User(props) {
                                 <div className="card mb-3 film__card pb-5" >
                                     <div className="row no-gutters">
                                         <div className="col-md-2">
-                                            <img src="..." className="card-img" style={{ width: 150, height: 150 }} />
+                                            <img src="..." className="card-img"  />
                                         </div>
                                         <div className="col-10">
                                             <div className="">
