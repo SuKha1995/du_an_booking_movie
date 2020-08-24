@@ -81,6 +81,20 @@ export default function AdminUpdateUser() {
                                 </ErrorMessage>
                             </div>
                             <div className="form-group">
+                                <label >Họ tên</label>
+                                <Field className="form-control"
+                                    name="hoTen"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                />
+                                <ErrorMessage name="hoTen">
+                                    {
+                                        (err) => <div>{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
                                 <label >Email</label>
                                 <Field className="form-control"
                                     name="email"
@@ -156,20 +170,7 @@ export default function AdminUpdateUser() {
                                 </ErrorMessage>
                             </div>
 
-                            <div className="form-group">
-                                <label >Họ tên</label>
-                                <Field className="form-control"
-                                    name="hoTen"
-                                    type="text"
-                                    onChange={formikProps.handleChange}
-
-                                />
-                                <ErrorMessage name="hoTen">
-                                    {
-                                        (err) => <div>{err}</div>
-                                    }
-                                </ErrorMessage>
-                            </div>
+                            
                             <div className="text-center">
                                 <button className="btn btn-success" type="submit">Xác Nhận</button>
 

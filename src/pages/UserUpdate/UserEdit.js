@@ -83,6 +83,20 @@ export default function UserEdit(props) {
                                 </ErrorMessage>
                             </div>
                             <div className="form-group">
+                                <label >Họ tên</label>
+                                <Field className="form-control"
+                                    name="hoTen"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                />
+                                <ErrorMessage name="hoTen">
+                                    {
+                                        (err) => <div>{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
                                 <label >Email</label>
                                 <Field className="form-control"
                                     name="email"

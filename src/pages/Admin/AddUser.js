@@ -32,9 +32,9 @@ export default function AddUser() {
     }
 
     return (
-        <div className="">
+        <div className="formRegis">
             <div className="w-50 mx-auto">
-                <h1 className='text-center  display-4 '>Thêm Người Dùng</h1>
+                <h1 className='text-center  display-4  form__title'>Thêm Người Dùng</h1>
                 <Formik
                     initialValues={{
                         taiKhoan: "",
@@ -74,6 +74,20 @@ export default function AddUser() {
 
                                 />
                                 <ErrorMessage name="matKhau">
+                                    {
+                                        (err) => <div >{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
+                                <label >Họ tên</label>
+                                <Field className="form-control"
+                                    name="hoTen"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                />
+                                <ErrorMessage name="hoTen">
                                     {
                                         (err) => <div >{err}</div>
                                     }
@@ -158,20 +172,7 @@ export default function AddUser() {
                                 </ErrorMessage>
                             </div>
                             
-                            <div className="form-group">
-                                <label >Họ tên</label>
-                                <Field className="form-control"
-                                    name="hoTen"
-                                    type="text"
-                                    onChange={formikProps.handleChange}
-
-                                />
-                                <ErrorMessage name="hoTen">
-                                    {
-                                        (err) => <div >{err}</div>
-                                    }
-                                </ErrorMessage>
-                            </div>
+                            
                             <div className="text-center">
                                 <button className="btn btn-success" type="submit">Thêm</button>
                                 

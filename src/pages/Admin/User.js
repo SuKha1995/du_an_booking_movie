@@ -97,7 +97,7 @@ export default function User() {
                 onSubmit={_handleSubmit}
                 render={(formimProps) => (
                     <Form>
-                        <label>Nhập Tên Tài Khoản Người Dùng Cần Tìm</label>
+                        <h4 className="display-6">Nhập Tên Tài Khoản Người Dùng Cần Tìm</h4>
                         <div className="row">
                             
                             <Field className="form-control col-8"
@@ -120,7 +120,7 @@ export default function User() {
            </Formik>
 
             <div className="mt-5">
-                <table className="table table-dark">
+                <table className="table table-dark table-hover ">
                     <thead>
                         <tr>
                            
@@ -139,8 +139,8 @@ export default function User() {
             </div>
 
            <div style={{ height: 600, width: 1100, overflowY: 'scroll', padding: 0, border: '1px solid #ccc' }} className="mt-5 text-center">
-               <table className="table table-hover table-bordered">
-                    <thead>
+               <table className="table table-hover  table-bordered">
+                    <thead className="thead-dark">
                         <tr>
                             <th>STT</th>
                             <th>Tài Khoản</th>

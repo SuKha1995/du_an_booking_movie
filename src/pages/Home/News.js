@@ -25,7 +25,7 @@ export default function News() {
                         </div>
                     </div>
                     <div className="news__content row pb-5">
-                        <div className="news__body-text  col-md-7 col-sm-6">
+                        <div className="news__body-text  col-md-7 col-sm-6 ">
                             <h5><a href="#">FUSCE SCELERISQUE</a></h5>
                             <h6>5/01/2018</h6>
                             <p>Proin euismod vehicula vestibulum. Fusce ullamcorper aliquet dolor id egestas. Nulla leo purus, facilisis non cursus ut, egestas sed ipsum.Fusce ullamcorper aliquet dolor id egestas. Nulla leo purus, facilisis non cursus ut, egestas
@@ -33,7 +33,7 @@ export default function News() {
         </p>
                         </div>
                         <div className="news__img col-md-5 col-sm-6">
-                            <img src="../img/home/news2.jpg" alt className="img-fluid" />
+                            <img src="../img/home/news2.jpg" alt className="img-fluid " />
                         </div>
                     </div>
                 </div>
