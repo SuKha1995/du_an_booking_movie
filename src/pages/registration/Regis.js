@@ -152,6 +152,7 @@ export default function Regis() {
                             </div>
                             <div className="text-center">
                                 <button className="btn btn-success  mr-3 small" type="submit">Đăng ký</button>
+                                
                                 <button className="btn btn-success" type="submit">
                                     <NavLink to='/login' style={{ color: "white" }}>Đăng nhập</NavLink>
                                 </button>

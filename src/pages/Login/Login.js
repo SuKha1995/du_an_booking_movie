@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useHistory } from 'react-router-dom'
 import * as yup from 'yup'
 import { LoginAction } from '../../redux/actions/userAction'
-import './Login.scss'
 
 function Login() {
     const dispatch = useDispatch()
@@ -27,7 +26,7 @@ function Login() {
     }, [getCheckLogin])
 
     return (
-        <div className="formLogin">
+        <div className="formRegis">
             <div className="w-50 mx-auto ">
                 <h1 className="text-center display-4 form__title">Đăng nhập</h1>
                 <Formik
@@ -73,9 +72,9 @@ function Login() {
                             <div className="text-center">
                                 <button className="btn btn-success mr-2" type="submit">
                                     Đăng nhập
-                        </button>
+                                </button>
                                 <button className="btn btn-success small" >
-                                    <NavLink to="/regis" className="regis">Đăng Ký</NavLink>
+                                    <NavLink to="/regis" style={{ color: "white" }}>Đăng Ký</NavLink>
 
                                 </button>
                             </div>

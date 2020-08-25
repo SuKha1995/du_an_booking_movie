@@ -59,3 +59,8 @@
         @content;
     }
 }
+@mixin  responsive_mobie {
+    @media #{$res-mobie} {
+        @content;
+    }
+}

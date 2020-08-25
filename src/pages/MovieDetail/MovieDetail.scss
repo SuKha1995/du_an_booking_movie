@@ -28,50 +28,32 @@
       margin-top: 15px;
       letter-spacing: 1px;
     }
-    .btn-datVe {
-      color: $color-gray-6;
-      font-weight: $fw-bold;
-      background: linear-gradient(to right, $color-orange-0, $color-orange-1);
-      padding: 7px 15px;
-      border: 1px solid $color-white-0;
-      border-radius: 5px;
-      box-shadow: none;
-
-      &:hover {
-        background: $color-white-0;
-        border-color: $color-orange-1;
-        color: $color-orange-1;
-        box-shadow: none;
-      }
-    }
-    
   }
 }
-@include responsive_768{
-  .moviDetail{
-    .movieDetail__Img{
-      img{
+@include responsive_768 {
+  .moviDetail {
+    .movieDetail__Img {
+      img {
         width: 200px;
         height: 300px;
       }
     }
   }
 }
-@include responsive_576{
-  .moviDetail{
-    .movieDetail__Img{
-      img{
+@include responsive_576 {
+  .moviDetail {
+    .movieDetail__Img {
+      img {
         width: 150px;
         height: 270px;
       }
     }
   }
 }
-@include responsive_0{
-  .moviDetail{
-    
-    .movieDetail__Img{
-      img{
+@include responsive_0 {
+  .moviDetail {
+    .movieDetail__Img {
+      img {
         width: 150px;
         height: 250px;
         padding-right: 5px;
@@ -79,33 +61,48 @@
     }
   }
 }
+@include responsive_mobie {
+  .moviDetail {
+    .movieDetail__Img {
+      img {
+        width: 115px;
+        height: 150px;
+        padding-right: 5px;
+      }
+    }
+  }
+}
 //
 
-.movieDetail__content--date{
+.movieDetail__content--date {
+  color: $color-gray-4;
+  &:hover {
     color: $color-gray-4;
-    &:hover{
-        color: $color-gray-4;
-    }
+  }
 }
-.MovieDetail{
-  .MovieDetail__cumRap{
-    @include styleText($fs-2,$fw-bold-0,$color-white-0);
+.MovieDetail {
+  .MovieDetail__cumRap {
+    @include styleText($fs-2, $fw-bold-0, $color-white-0);
     background: linear-gradient(to right, $color-orange-0, $color-orange-1);
     border-radius: 0;
     border: 1px solid $color-orange-0;
-    &:hover{
+    &:hover {
       background: $color-white-0;
       color: $color-orange-1;
     }
-    
   }
-  
-  .nav-link.active{
+
+  .nav-link.active {
     background: $color-white-0;
     color: $color-orange-1;
-     border-radius: 0;
+    border-radius: 0;
   }
 }
-.tenRap{
-  @include styleText($fs-2,$fw-bold-0,$color-gray-4)
+.tenRap {
+  @include styleText($fs-2, $fw-bold-0, $color-gray-4);
+}
+@include responsive_mobie{
+  .cumRap__img{
+    display: none;
+  }
 }

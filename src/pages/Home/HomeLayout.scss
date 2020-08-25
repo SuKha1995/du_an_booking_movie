@@ -51,6 +51,19 @@
   }
   
 }
+@include responsive_mobie {
+  .carousel{
+    .carousel__item{
+      a{
+        img{
+          width: 100%;
+          height: 250px;
+        }
+      }
+    }
+  }
+  
+}
 
 .movie__card {
   background-image: url(../../img/homeImg/hinhnen2.jpg);
@@ -219,6 +232,19 @@
   }
 }
 }
+@include responsive_mobie{
+  .movie__card-content{
+    .card-img {
+      text-align: center;
+     
+      img{
+        
+        height: 240px;
+      }
+      
+  }
+}
+}
 
 //
 .heThongRap{
@@ -326,6 +352,35 @@
       }
     }
   }
+}
+@include responsive_mobie{
+  .heThongRap{
+    .heThongRap__body{
+      .heThongRap__content{
+        p{
+          padding: 10px 0;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .cumRap .cumRap__body .tenCumRap {
+      font-size: 16px;
+      font-weight: 600;
+  }
+  .tenPhim{
+    margin: 0;
+    display: block;
+    font-size: 16px;
+  }
+  .hinhAnh{
+    width: 20px;
+    height: 60px;
+  }
+  }
+  
+
+  
 }
 
   //news

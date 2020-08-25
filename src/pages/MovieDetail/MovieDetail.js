@@ -47,13 +47,15 @@ export default function MovieDetail(props) {
 
                             </tr>
                         </thead>
-                        <button onClick={openTrailer} className="btn-orange mt-3 mr-3">
-                            Trailer
-                    </button>
-                        <a className="btn-datVe" href="#datVe">
-                            Đặt vé
-                    </a>
                     </table>
+                    <div className="my-3">
+                        <button onClick={openTrailer} className="btn-orange mr-3 ">
+                            Trailer
+                        </button>
+                        <button className="btn-orange" href="#datVe">
+                            Đặt vé
+                        </button>
+                    </div>
                 </div>
             </div>
             <hr />
@@ -63,7 +65,7 @@ export default function MovieDetail(props) {
                     <div className="nav flex-column nav-pills MovieDetail col-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         {thongTinPhim.heThongRapChieu?.map((heThongRap, index) => {
                             return <a key={index} className="nav-link MovieDetail__cumRap " id="v-pills-home-tab" data-toggle="pill" href={`#${heThongRap.maHeThongRap}`} role="tab" aria-controls="v-pills-home" aria-selected="true">
-                                <img src={heThongRap.logo} style={{ width: '35px', height: '35px' }} />
+                                <img className="cumRap__img" src={heThongRap.logo} style={{ width: '35px', height: '35px' }} />
                                 <span className="ml-3">{heThongRap.tenHeThongRap}</span>
                             </a>
 

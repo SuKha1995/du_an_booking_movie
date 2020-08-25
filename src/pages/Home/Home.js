@@ -14,17 +14,27 @@ export default function Home(props) {
     let history = useHistory();
     // let isLogin = useSelector(state => state.user.checkLogin)
     let isLogin = JSON.parse(localStorage.getItem('userLogin'))
-    //lay danh sách phim
+    
     useEffect(() => {
-
+        //lay danh sách phim
         qlPhimService.layDanhSachPhim().then(res => {
             setDanhSachPhim(res.data)
-            console.log(res.data)
+            // console.log(res.data)
         }).catch(error => {
             console.log(error.response.data)
         })
 
+        //lay danh sách cụm rạp
+        qlPhimService.layThongTinLichChieuHeThongRap().then((result) => {
+            // console.log(result.data)
+            setthongTinRap(result.data)
+        }).catch((err) => {
+            console.log(err)
+        })
+
     }, []);
+
+    //mở trailer ở tab mới
     const openTrailer = (phim) => {
         window.open(phim)
     }
@@ -47,16 +57,6 @@ export default function Home(props) {
             history.push('/login')
         }
     }
-    //lấy danh sách cụm rap
-    useState(() => {
-        qlPhimService.layThongTinLichChieuHeThongRap().then((result) => {
-            // console.log(result.data)
-            setthongTinRap(result.data)
-        }).catch((err) => {
-            console.log(err)
-        })
-    }, [])
-    console.log('thongTinRap', thongTinRap)
 
 
     let renderPhim = () => {
@@ -139,9 +139,9 @@ export default function Home(props) {
                                             id={cumRap.maCumRap} key={index}    >
                                             {cumRap.danhSachPhim?.map((listPhim, index) => {
                                                 return <div >
-                                                    <div key={index} aria-selected="true" className="row px-2">
-                                                        <img src={listPhim.hinhAnh}  className="col-4" />
-                                                        <div className="col-8 tenPhim">
+                                                    <div key={index} aria-selected="true" className="row px-2 ">
+                                                        <img src={listPhim.hinhAnh}  className=" col-8 col-sm-8 col-md-8 col-lg-6 hinhAnh" />
+                                                        <div className=" col-sm-12 col-md-8 col-lg-6 tenPhim">
                                                             {listPhim.tenPhim}
                                                             
                                                         </div>
