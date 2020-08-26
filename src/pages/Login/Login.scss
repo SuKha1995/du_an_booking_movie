@@ -1,44 +1,71 @@
-// @import "../../assets/scss/Helper/mixin";
-// @import "../../assets/scss/Helper/variables";
+@import "../../assets/scss/Helper/mixin";
+@import "../../assets/scss/Helper/variables";
 
-// .formLogin{
-//     position: sticky;
-//     width: 100%;
-//     height: 600px;
-//     background-image: url(../../img/bg-img/cat.jpg);
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-attachment: fixed; // cố định bg
-//     color: white;
-//     .form-control{
-//         border:2px solid $color-green;
-//         background: none;
-//         color: white;
-//         font-size: 18px;
-//         &:focus{
-//             height: 45px;
-//         }
+.formLogin{
+    position: sticky;
+    width: 100%;
+    height: 600px;
+    background-image: url(../../img/bg-img/cat.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; // cố định bg
+    color: white;
+    .form-control{
+        border:2px solid $color-green;
+        background: none;
+        color: white;
+        font-size: 18px;
+        &:focus{
+            height: 45px;
+        }
         
-//   ;
+  ;
       
-//     }
-//     .form__title{
-//         padding-top: 30px;
-//         font-weight: 600px;
-//         color: white;
+    }
+    .form__title{
+        padding-top: 30px;
+        font-weight: 600px;
+        color: white;
        
-//     }
-//     label{
-//         font-size: 18px;
-//     }
-//     .small{
-//         padding: 6px 21px;
-//     }
-//     .regis{
-//         color: white;
+    }
+    label{
+        font-size: 18px;
+    }
+    .small{
+        padding: 6px 21px;
+    }
+    .regis{
+        color: white;
         
-//     }
-// }
-// // @include responsive_320_991{
+    }
+}
+// @include responsive_320_991{
     
-// // }
+// }
+@include responsive_576{
+    .formLogin{
+      .form__title{
+        font-size: 36px;
+      }
+    }
+  }
+  @include responsive_0{
+    .formLogin{
+      .form__title{
+        font-size: 36px;
+      }
+    }
+  }
+  @include responsive_mobie{
+      .formLogin{
+        
+        .form__title{
+          font-size: 30px;
+        }
+        .btn{
+          margin: 0 !important;
+          margin-top: 10px !important;
+        }
+      }
+      
+  }

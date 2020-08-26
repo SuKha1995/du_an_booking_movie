@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useHistory } from 'react-router-dom'
 import * as yup from 'yup'
 import { LoginAction } from '../../redux/actions/userAction'
-
+import './Login.scss'
 function Login() {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -26,7 +26,7 @@ function Login() {
     }, [getCheckLogin])
 
     return (
-        <div className="formRegis">
+        <div className="formLogin">
             <div className="w-50 mx-auto ">
                 <h1 className="text-center display-4 form__title">Đăng nhập</h1>
                 <Formik

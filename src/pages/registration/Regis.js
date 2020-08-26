@@ -81,6 +81,20 @@ export default function Regis() {
                                 </ErrorMessage>
                             </div>
                             <div className="form-group">
+                                <label >Họ tên</label>
+                                <Field className="form-control"
+                                    name="hoTen"
+                                    type="text"
+                                    onChange={formikProps.handleChange}
+
+                                />
+                                <ErrorMessage name="hoTen">
+                                    {
+                                        (err) => <div >{err}</div>
+                                    }
+                                </ErrorMessage>
+                            </div>
+                            <div className="form-group">
                                 <label >Email</label>
                                 <Field className="form-control"
                                     name="email"
@@ -108,7 +122,7 @@ export default function Regis() {
                                     }
                                 </ErrorMessage>
                             </div>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label >Mã nhóm</label>
                                 <Field className="form-control"
                                     component="select"
@@ -129,27 +143,14 @@ export default function Regis() {
                                     <option>GP10</option>
 
 
-                                </Field>
-                                <ErrorMessage name="maNhom">
+                                </Field> */}
+                                {/* <ErrorMessage name="maNhom">
                                     {
                                         (err) => <div >{err}</div>
                                     }
                                 </ErrorMessage>
-                            </div>
-                            <div className="form-group">
-                                <label >Họ tên</label>
-                                <Field className="form-control"
-                                    name="hoTen"
-                                    type="text"
-                                    onChange={formikProps.handleChange}
-
-                                />
-                                <ErrorMessage name="hoTen">
-                                    {
-                                        (err) => <div >{err}</div>
-                                    }
-                                </ErrorMessage>
-                            </div>
+                            </div> */}
+                            
                             <div className="text-center">
                                 <button className="btn btn-success  mr-3 small" type="submit">Đăng ký</button>
                                 
